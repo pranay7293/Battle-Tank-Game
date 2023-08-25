@@ -32,20 +32,17 @@ public class TankCtrl : MonoBehaviour
         float vertical = joystick.Vertical;
         float horizontal = joystick.Horizontal;
 
-        Vector3 movement = transform.forward * vertical * speed * Time.deltaTime;
-
-        // Check for any movement input (both vertical and horizontal)
-        if (vertical != 0 || horizontal != 0)
+        if (vertical > 0.2 ) 
         {
-            Vector3 inputDirection = new Vector3(horizontal, 0.0f, vertical).normalized;
-            float targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + mainCamera.transform.eulerAngles.y;
-
-            // Smoothly rotate the character using Quaternion.RotateTowards
-            Quaternion targetQuaternion = Quaternion.Euler(0.0f, targetRotation, 0.0f);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetQuaternion, rotationSpeed * Time.deltaTime);
+            Vector3 movement = transform.forward * vertical * speed * Time.deltaTime;
+            playerrb.MovePosition(transform.position + movement);
+        }
+        if (horizontal > 0.5f)
+        {
+            Vector3 vector = new Vector3(0, horizontal * rotationSpeed, 0);
+            Quaternion deltaRotation = Quaternion.Euler(vector * Time.deltaTime);
+            playerrb.MoveRotation(playerrb.rotation * deltaRotation);
         }
 
-        // Move the character using rigidbody
-        playerrb.MovePosition(transform.position + movement);
     }
 }
