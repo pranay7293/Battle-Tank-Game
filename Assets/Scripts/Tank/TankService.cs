@@ -2,29 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 
 public class TankService : TankServiceGeneric<TankService>
 {
-    public TankView tankViewprefab;
+    [SerializeField]
+    private TankScriptableObjectList TankScriptableObjectList;
     private void Start()
     {
         CreateNewTank();
-        //StartGame();
-
     }
-    /*private void StartGame()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            CreateNewTank();
-        }
-    }*/
 
-    private void  CreateNewTank()
+    private TankController CreateNewTank()
     {
-        TankModel model = new TankModel(5, 100);
-        TankController tank = new TankController(model, tankViewprefab);
-         
+        int randomNumber = (int)Random.Range(0, TankScriptableObjectList.tanks.Length - 1);
+        TankScriptableObject tankObject = TankScriptableObjectList.tanks[randomNumber];
+        Debug.Log("Created tank of type: " + tankObject.name);
+        TankModel tankModel = new TankModel(tankObject);
+        TankController tankController = new TankController(tankModel, tankObject.tankView);
+        return tankController;
+
     }
 }
