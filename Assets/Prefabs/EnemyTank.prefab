@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6782050545192916005}
   m_Layer: 0
   m_Name: EnemyTank
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,10 +216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a91003bf0479f48ba4375c647d7245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleDistanceThreshold: 2
-  obstacleLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!1 &9149362692477725715
 GameObject:
   m_ObjectHideFlags: 0

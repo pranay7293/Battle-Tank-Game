@@ -8,13 +8,16 @@ public class TankView : MonoBehaviour
     [SerializeField] private BulletService bulletSpawner;
     [SerializeField] private Button shootButton;
 
+    private LevelDestroyer levelDestroyer;
     private TankController tankController;
     private float movement;
     private float rotation;
 
 
     private void Start()
-    {          
+    {
+        levelDestroyer = FindObjectOfType<LevelDestroyer>().GetComponent<LevelDestroyer>();
+
         shootButton.onClick.AddListener(Shoot);
         Debug.Log("Tank view created");
     }
@@ -58,7 +61,8 @@ public class TankView : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            //
+            Debug.Log("collision detected");
+            StartCoroutine(levelDestroyer.DestroyAll()); 
         }
     }
 }

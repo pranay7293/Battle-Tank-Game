@@ -422,6 +422,8 @@ MonoBehaviour:
   tankRb: {fileID: -5346082587570885684}
   bulletSpawner: {fileID: 1628581065324814428}
   shootButton: {fileID: 2051195015811690947}
+  levelDestroyer: {fileID: 3143706416102015173, guid: 9e01fc2bc889fc6409dda65808dbae37,
+    type: 3}
 --- !u!1 &8247225497256825772
 GameObject:
   m_ObjectHideFlags: 0

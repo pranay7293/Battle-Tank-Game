@@ -1,62 +1,23 @@
-using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.PlayerLoop;
 using Random = UnityEngine.Random;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemyService : MonoBehaviour
 {
     [SerializeField] private EnemyScriptableObjectList enemyList;
     private Vector3 randomPoint;
-    private Coroutine spawnCoroutine = null;
-    [SerializeField] private int spawnCount;
+    public int spawnCount;
     [SerializeField] private float range;
-    private bool isRunning;
 
-    // Start is called before the first frame update
     private void Start()
     {
-        isRunning = false;
         for(int i  = 0; i < spawnCount; i++)
         {
-            for (int j = 0; j < 10; j++)
+            if (RandomPoint(Vector3.zero, range, out randomPoint))
             {
-                if (RandomPoint(Vector3.zero, range, out randomPoint) && spawnCount > 0)
-                    break;
-            }
-            SpawnEnemy(randomPoint);
+                SpawnEnemy(randomPoint);
+            } 
         }
-        
-
-    }
-    void Update()
-    {
-        if(RandomPoint(Vector3.zero, range, out randomPoint) && spawnCount > 0)
-        {
-            if (spawnCoroutine == null)
-            {
-                spawnCoroutine = StartCoroutine(SpawnAtRandomPoint());
-            }
-            else
-            {
-                if (!isRunning)
-                {
-                    StopCoroutine(spawnCoroutine);
-                    spawnCoroutine = null;
-                }
-            }
-
-        }
-    }
-
-    IEnumerator SpawnAtRandomPoint()
-    {
-        isRunning = true;
-        yield return new WaitForSeconds(3);
-        SpawnEnemy(randomPoint);
-        spawnCount--;
-        isRunning = false;
     }
     
     private void SpawnEnemy(Vector3 spawnPoint)
