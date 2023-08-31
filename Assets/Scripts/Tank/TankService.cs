@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class TankService : TankServiceGeneric<TankService>
-{
+public class TankService : MonoBehaviour 
+{ 
     [SerializeField]
     private TankScriptableObjectList TankScriptableObjectList;
     private void Start()

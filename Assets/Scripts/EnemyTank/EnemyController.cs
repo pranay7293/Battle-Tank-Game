@@ -11,7 +11,6 @@ public class EnemyController
     {
         EnemyModel = enemyModel;
         EnemyView = GameObject.Instantiate<EnemyView>(enemyView, spawnPoint, Quaternion.identity);
-        Debug.Log("Enemy created");
         EnemyView.SetEnemyController(this);
     }
     public EnemyModel GetEnemyModel()

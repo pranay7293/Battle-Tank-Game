@@ -7,25 +7,21 @@ public class EnemyView : MonoBehaviour
 {
     private EnemyController EnemyController { get; set; }
     private NavMeshAgent agent;
-
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
     }
     void Update()
     {
-        if (agent.remainingDistance <= agent.stoppingDistance) //done with path
+        if (agent.remainingDistance <= agent.stoppingDistance)
         {
             Vector3 point;
-            if (RandomPoint(transform.position, EnemyController.GetEnemyModel().Range, out point)) //pass in our centre point and radius of area
+            if (RandomPoint(transform.position, EnemyController.GetEnemyModel().Range, out point)) 
             {
-                Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
                 agent.SetDestination(point);
             }
-        }
-
+        }   
     }
-
    
 
     public void SetEnemyController(EnemyController enemyController)
@@ -33,7 +29,7 @@ public class EnemyView : MonoBehaviour
         EnemyController = enemyController;
     }
 
-    // Random point for AI
+
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
         Vector3 randomPoint = center + Random.insideUnitSphere * range;
@@ -52,15 +48,16 @@ public class EnemyView : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            DestroyTank();
+            DestroyEnemyTank();
         }
     }
 
-    public void DestroyTank()
+    public void DestroyEnemyTank()
     {
         ParticleSystem explosion = Instantiate(EnemyController.GetEnemyModel().Explosion, gameObject.transform.position, Quaternion.identity);
 
         Destroy(gameObject);
         Destroy(explosion, 1.5f);
     }
+ 
 }

@@ -14,12 +14,10 @@ public class BulletView : MonoBehaviour
     }
     private void Start()
     {
-        BulletController.Fly();
+        BulletController.ShootBullet();
+        Invoke(nameof(DestroyBullet), 4f);
     }
-    private void Update()
-    {
-        Destroy(gameObject, 5f);
-    }
+   
     private void OnCollisionEnter(Collision collision)
     {
         //explode
@@ -36,5 +34,9 @@ public class BulletView : MonoBehaviour
             Destroy(explosion, 2f);
             Destroy(gameObject);            
         }
+    }
+    private void DestroyBullet()
+    {
+        Destroy(gameObject);
     }
 }

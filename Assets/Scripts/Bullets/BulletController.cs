@@ -15,7 +15,7 @@ public class BulletController
         BulletView.SetBulletController(this);
         bulletRb = BulletView.GetRigidbody();
     }
-    public void Fly()
+    public void ShootBullet()
     {
         bulletRb.velocity = bulletSpawn.forward * BulletModel.Speed;
     }

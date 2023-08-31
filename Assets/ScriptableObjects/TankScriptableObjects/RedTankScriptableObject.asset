@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 1
   tankName: Red Tank
   health: 100
-  speed: 2
+  speed: 50
   damage: 20
   tankView: {fileID: -245875660379686609, guid: 92528d2ee6e77164a9e31a2a6349d07a,
     type: 3}

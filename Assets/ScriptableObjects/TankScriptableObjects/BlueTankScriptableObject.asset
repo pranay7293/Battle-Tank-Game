@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 2
   tankName: Blue Tank
   health: 100
-  speed: 5
+  speed: 50
   damage: 5
   tankView: {fileID: -245875660379686609, guid: 15e2aa35d42c22e44a33bde33a41c90e,
     type: 3}

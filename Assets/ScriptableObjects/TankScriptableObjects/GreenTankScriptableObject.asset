@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 3
   tankName: Green Tank
   health: 200
-  speed: 5
+  speed: 50
   damage: 20
   tankView: {fileID: -245875660379686609, guid: e91c6f6c86cb8ac4d99f7b218bf36ad7,
     type: 3}
