@@ -3,14 +3,22 @@ using UnityEngine;
 public class EnemyModel
 {
     public EnemyController EnemyController { get; set; }
-    public float Speed { get; set; }
-    public float Range { get; set; }
-    public  ParticleSystem Explosion { get; set; }
+    public float EnemySpeed { get; set; }
+    public float EnemyRange { get; set; }
+    public int SightRange { get; set; }
+    public int AttackRange { get; set; }
+
+    public ParticleSystem EnemyExplosion { get; set; }
+    public AudioClip ShootClip { get; set; }
+
 
     public EnemyModel(EnemyScriptableObject enemyScriptableObject)
     {
-        Speed = enemyScriptableObject.speed;
-        Range = enemyScriptableObject.range;
-        Explosion = enemyScriptableObject.deathExplosion;
+        EnemySpeed = enemyScriptableObject.speed;
+        EnemyRange = enemyScriptableObject.range;
+        EnemyExplosion = enemyScriptableObject.deathExplosion;
+        ShootClip = enemyScriptableObject.shootClip;
+        SightRange = enemyScriptableObject.sightRange;
+        AttackRange = enemyScriptableObject.attackRange;
     }
 }

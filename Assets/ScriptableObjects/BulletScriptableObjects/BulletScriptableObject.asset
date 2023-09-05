@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletView: {fileID: -1039794179789640871, guid: 7606ca22209031844a77140dea69b167,
     type: 3}
-  speed: 20
+  speedBullet: 200
   explosionType: {fileID: 19807510, guid: 89e78efe92dfe5a42837b392cdb0bf9e, type: 3}
   explosionClip: {fileID: 8300000, guid: 3a77defcde1caaa40b6f7502547e0c4e, type: 3}
-  source: {fileID: 2686189690885883686, guid: 7606ca22209031844a77140dea69b167, type: 3}
+  sourceAudio: {fileID: 2686189690885883686, guid: 7606ca22209031844a77140dea69b167,
+    type: 3}

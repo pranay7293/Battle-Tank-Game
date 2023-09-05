@@ -418,9 +418,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65970b51064dbbc47a33cc8231a471ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystick: {fileID: 6436732732108085294}
+  joyStick: {fileID: 6436732732108085294}
   tankRb: {fileID: -5346082587570885684}
-  bulletSpawner: {fileID: 1628581065324814428}
+  bulletService: {fileID: 1628581065324814428}
   shootButton: {fileID: 2051195015811690947}
   levelDestroyer: {fileID: 3143706416102015173, guid: 9e01fc2bc889fc6409dda65808dbae37,
     type: 3}
@@ -584,7 +584,7 @@ Transform:
   m_GameObject: {fileID: 9149362692477725715}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 1.25}
+  m_LocalPosition: {x: 0, y: 0.25, z: 1.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -1,48 +1,91 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyView : MonoBehaviour
 {
-    private EnemyController EnemyController { get; set; }
-    private NavMeshAgent agent;
+    public EnemyModel EnemyModel { get; set; }
+    public EnemyController EnemyController { get; set; }
+    public TankView PlayerTank1 { get => PlayerTank; set => PlayerTank = value; }
+
+    public NavMeshAgent enemyAgent;
+
+    private TankView PlayerTank;
+    private EnemyStates currentState;
+    public EnemyIdleState idleState;
+    public EnemyPatrolState patrolState;
+    public EnemyChaseState chaseState;
+    public EnemyAttackState attackState;
+
+
+    [SerializeField] private BulletService bulletService;
+    private int sightRange;
+    private int attackRange;
+    private bool playerInSightRange = false;
+    private bool playerInAttackRange = false;
+
     private void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        PlayerTank = FindObjectOfType<TankView>();
+        EnemyModel = EnemyController.GetEnemyModel();
+        sightRange = EnemyModel.SightRange; 
+        attackRange = EnemyModel.AttackRange;
+        EnemyModel = EnemyController.GetEnemyModel();
+        ChangeState(idleState);
+        enemyAgent = GetComponent<NavMeshAgent>();
+        if (PlayerTank == null)
+        {
+            Debug.LogError("PlayerTank not found!");
+        }
     }
     void Update()
     {
-        if (agent.remainingDistance <= agent.stoppingDistance)
+        if (PlayerTank != null)
         {
-            Vector3 point;
-            if (RandomPoint(transform.position, EnemyController.GetEnemyModel().Range, out point)) 
-            {
-                agent.SetDestination(point);
-            }
-        }   
-    }
-   
+            currentState.Tick();
+        }
+            
+        playerInSightRange = Vector3.Distance(this.transform.position, PlayerTank.transform.position) <= sightRange;
+        playerInAttackRange = Vector3.Distance(this.transform.position, PlayerTank.transform.position) <= attackRange;
 
-    public void SetEnemyController(EnemyController enemyController)
-    {
-        EnemyController = enemyController;
-    }
-
-
-    bool RandomPoint(Vector3 center, float range, out Vector3 result)
-    {
-        Vector3 randomPoint = center + Random.insideUnitSphere * range;
-        NavMeshHit hit;
-        if(NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+        if (!playerInSightRange && !playerInAttackRange)
         {
-            result = hit.position;
-            return true;
+            ChangeState(patrolState);
+        }
+        else if (playerInSightRange && !playerInAttackRange)
+        {
+            ChangeState(chaseState);
+        }
+        else if (playerInAttackRange && playerInSightRange)
+        {
+            ChangeState(attackState);
+        }
+    }
+
+    public void ChangeState(EnemyStates newState)
+    {
+        if (currentState != null)
+        {
+            currentState.OnExitState();
         }
 
-        result = Vector3.zero;
-        return false;
+        currentState = newState;
+        currentState.OnEnterState();
     }
+    public AudioSource GetAudioSource()
+    {
+        return gameObject.GetComponent<AudioSource>();
+    }
+
+    public BulletService GetBulletService()
+    {
+        return bulletService;
+    }
+
+    public void SetEnemyController(EnemyController enemyCtrl)
+    {
+        EnemyController = enemyCtrl;
+    }
+    
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -54,7 +97,7 @@ public class EnemyView : MonoBehaviour
 
     public void DestroyEnemyTank()
     {
-        ParticleSystem explosion = Instantiate(EnemyController.GetEnemyModel().Explosion, gameObject.transform.position, Quaternion.identity);
+        ParticleSystem explosion = Instantiate(EnemyController.GetEnemyModel().EnemyExplosion, gameObject.transform.position, Quaternion.identity);
 
         Destroy(gameObject);
         Destroy(explosion, 1.5f);

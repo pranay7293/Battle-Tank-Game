@@ -3,23 +3,20 @@ using UnityEngine.UI;
 
 public class TankView : MonoBehaviour
 {
-    [SerializeField] private Joystick joystick;
+    [SerializeField] private Joystick joyStick;
     [SerializeField] private Rigidbody tankRb;
-    [SerializeField] private BulletService bulletSpawner;
+    [SerializeField] private BulletService bulletService;
     [SerializeField] private Button shootButton;
+    [SerializeField] private LevelDestroyer levelDestroyer;
 
-    private LevelDestroyer levelDestroyer;
     private TankController tankController;
     private float movement;
     private float rotation;
 
 
     private void Start()
-    {
-        levelDestroyer = FindObjectOfType<LevelDestroyer>().GetComponent<LevelDestroyer>();
-
+    {        
         shootButton.onClick.AddListener(Shoot);
-        Debug.Log("Tank view created");
     }
     private void Update()
     {
@@ -37,8 +34,8 @@ public class TankView : MonoBehaviour
 
     private void Movement()
     {
-        movement = joystick.Vertical;
-        rotation = joystick.Horizontal;
+        movement = joyStick.Vertical;
+        rotation = joyStick.Horizontal;
     }
     public Rigidbody GetRigidbody() { return tankRb; }
 
@@ -46,9 +43,9 @@ public class TankView : MonoBehaviour
     {
         tankController = _tankController;
     }
-    public BulletService GetBulletSpawner()
+    public BulletService GetBulletService()
     {
-        return bulletSpawner;
+        return bulletService;
     }
     public void Shoot()
     {
@@ -57,12 +54,5 @@ public class TankView : MonoBehaviour
         tankController.ShootBullet();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Debug.Log("collision detected");
-            StartCoroutine(levelDestroyer.DestroyAll()); 
-        }
-    }
+    
 }

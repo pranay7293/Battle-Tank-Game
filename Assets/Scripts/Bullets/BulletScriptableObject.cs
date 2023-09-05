@@ -4,8 +4,8 @@ using UnityEngine;
 public class BulletScriptableObject : ScriptableObject
 {
     public BulletView bulletView;
-    public float speed;
+    public float speedBullet;
     public ParticleSystem explosionType;
     public AudioClip explosionClip;
-    public AudioSource source;
+    public AudioSource sourceAudio;
 }

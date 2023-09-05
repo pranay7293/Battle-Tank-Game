@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd4514987bbdc44ea7036b6d5eac057, type: 3}
   m_Name: EnemyScriptableObjectList
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 11400000, guid: a5e52dbc616491049b7f593d5914798a, type: 2}
-  - {fileID: 11400000, guid: 200ee3ca958c1ab429ab24bdceade6fb, type: 2}
+  enemieTanks:
   - {fileID: 11400000, guid: a5e52dbc616491049b7f593d5914798a, type: 2}
   - {fileID: 11400000, guid: 200ee3ca958c1ab429ab24bdceade6fb, type: 2}
