@@ -1,13 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 public class EnemyService : MonoBehaviour
 {
-    [SerializeField] private EnemyScriptableObjectList enemyList;
-    private Vector3 randomPoint;
-    public int spawnCount;
+    [SerializeField] private EnemyScriptableObjectList enemyTanksList;
     [SerializeField] private float range;
+    [SerializeField] private int spawnCount;
+    private Vector3 randomPoint;
+   
+
+    [SerializeField] public List<EnemyController> ListofEnemies { get; private set; } = new List<EnemyController>();
+
 
     private void Start()
     {
@@ -19,13 +25,14 @@ public class EnemyService : MonoBehaviour
             } 
         }
     }
-    
+
     private void SpawnEnemy(Vector3 spawnPoint)
     {
-        int randomNumber = (int)Random.Range(0f, enemyList.enemies.Length - 1);
-        EnemyScriptableObject obj = enemyList.enemies[randomNumber];
-        EnemyModel model = new EnemyModel(obj);
-        EnemyController enemyController = new EnemyController(model, obj.enemyView, spawnPoint);
+        int randomNumber = (int)Random.Range(0f, enemyTanksList.enemieTanks.Length - 1);
+        EnemyScriptableObject obj = enemyTanksList.enemieTanks[randomNumber];
+        EnemyModel enemyModel = new EnemyModel(obj);
+        EnemyController enemyController = new EnemyController(enemyModel, obj.enemyView, spawnPoint);
+        ListofEnemies.Add(enemyController);
     }
 
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
@@ -33,8 +40,7 @@ public class EnemyService : MonoBehaviour
         for (int i = 0; i < 30; i++)
         {
             Vector3 randomPoint = center + Random.insideUnitSphere * range;
-            NavMeshHit hit;
-            if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, 1.0f, NavMesh.AllAreas))
             {
                 result = hit.position;
                 return true;

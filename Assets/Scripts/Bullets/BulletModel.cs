@@ -3,20 +3,20 @@ using UnityEngine;
 public class BulletModel
 {
     public BulletController BulletController { get; set; }
-    public float Speed { get; }
-    public ParticleSystem explosionType;
-    public AudioClip explosionClip;
-    public AudioSource explosionSource;
+    public float BulletSpeed { get; }
+    public ParticleSystem bulletExplosion;
+    public AudioClip bulletClip;
+    public AudioSource bulletAudioSource;
 
     public BulletModel(BulletScriptableObject bulletScriptableObject)
     {
-        Speed = bulletScriptableObject.speed;
-        explosionType = bulletScriptableObject.explosionType;
-        explosionClip = bulletScriptableObject.explosionClip;
-        explosionSource = bulletScriptableObject.source;
+        BulletSpeed = bulletScriptableObject.speedBullet;
+        bulletExplosion = bulletScriptableObject.explosionType;
+        bulletClip = bulletScriptableObject.explosionClip;
+        bulletAudioSource = bulletScriptableObject.sourceAudio;
     }
-    public void SetBulletController(BulletController bulletController)
+    public void SetBulletController(BulletController bulletCtrl)
     {
-        BulletController = bulletController;
+        BulletController = bulletCtrl;
     }
 }

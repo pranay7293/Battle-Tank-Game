@@ -4,9 +4,9 @@ public class BulletView : MonoBehaviour
 {
     private BulletController BulletController { get; set; }
 
-    public void SetBulletController(BulletController bulletController)
+    public void SetBulletController(BulletController bulletCtrl)
     {
-        BulletController = bulletController;
+        BulletController = bulletCtrl;
     }
     public Rigidbody GetRigidbody()
     {
@@ -25,11 +25,11 @@ public class BulletView : MonoBehaviour
         {
             BulletModel model = BulletController.GetBulletModel();
 
-            ParticleSystem explosion = Instantiate(model.explosionType, transform.position, Quaternion.identity);
+            ParticleSystem explosion = Instantiate(model.bulletExplosion, transform.position, Quaternion.identity);
             explosion.Play(); 
 
             if (gameObject != null)
-                BulletController.GetBulletModel().explosionSource.PlayOneShot(BulletController.GetBulletModel().explosionClip);
+                BulletController.GetBulletModel().bulletAudioSource.PlayOneShot(BulletController.GetBulletModel().bulletClip);
 
             Destroy(explosion, 2f);
             Destroy(gameObject);            
