@@ -3,10 +3,15 @@ using UnityEngine;
 public class BulletView : MonoBehaviour
 {
     private BulletController BulletController { get; set; }
-
+    private bool hasExploded = false; 
+    private AudioSource audioSource;
     public void SetBulletController(BulletController bulletCtrl)
     {
         BulletController = bulletCtrl;
+    }
+    public BulletController GetBulletController()
+    {
+        return BulletController;
     }
     public Rigidbody GetRigidbody()
     {
@@ -14,25 +19,39 @@ public class BulletView : MonoBehaviour
     }
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         BulletController.ShootBullet();
         Invoke(nameof(DestroyBullet), 3f);
     }
    
     private void OnCollisionEnter(Collision collision)
     {
-        //explode
-        if(collision.gameObject.GetComponent<TankView>() == null)
+        BulletType bulletType = BulletController.GetBulletType();
+
+        if (collision.gameObject.CompareTag("Player") && bulletType == BulletType.PlayerBullet)
         {
-            BulletModel model = BulletController.GetBulletModel();
+            DestroyBullet();
+        }
+        else if (collision.gameObject.CompareTag("Enemy") && bulletType == BulletType.EnemyBullet)
+        {
+            DestroyBullet();
+        }
+        else
+        {
+            if (!hasExploded)
+            {
+                BulletModel model = BulletController.GetBulletModel();
 
-            ParticleSystem explosion = Instantiate(model.bulletExplosion, transform.position, Quaternion.identity);
-            explosion.Play(); 
+                ParticleSystem explosion = Instantiate(model.bulletExplosion, transform.position, Quaternion.identity);
+                explosion.Play();
 
-            if (gameObject != null)
-                BulletController.GetBulletModel().bulletAudioSource.PlayOneShot(BulletController.GetBulletModel().bulletClip);
-
-            Destroy(explosion.gameObject, 2f);
-            Destroy(gameObject);            
+                audioSource.PlayOneShot(BulletController.GetBulletModel().bulletClip);
+                
+                Destroy(explosion.gameObject, 2f);
+                DestroyBullet();
+                hasExploded = true;
+            }
+            hasExploded = false;
         }
     }
     private void DestroyBullet()

@@ -22,16 +22,34 @@ public class EnemyController
     }
     public void Fire()
     {
-        BulletService.SpawnBullet(BulletService.transform);
+        BulletService.SpawnBullet(BulletService.transform, BulletType.EnemyBullet);
+    }
+  
+    public float Getdistance()
+    {
+        if (TankController != null && TankController.TankView != null)
+        {
+            Vector3 direction = TankController.TankView.transform.position - EnemyView.transform.position;
+            float distance = direction.magnitude;
+            return distance;
+        }
+        return 20f;
+    }
+    public void ApplyDamage(int damage)
+    {
+        if (EnemyModel.EnemyHealth - damage <= 0)
+        {
+            EnemyView.GetEnemyHealth().UpdateHealth(0);
+            EnemyView.DestroyEnemyTank();
+        }
+        else
+        {
+            EnemyModel.EnemyHealth -= damage;
+            EnemyView.GetEnemyHealth().UpdateHealth(EnemyModel.EnemyHealth);
+        }
     }
     public void DestroyTank()
     {
         EnemyView.DestroyEnemyTank();
-    }
-    public float Getdistance()
-    {
-        Vector3 direction = TankController.TankView.transform.position - EnemyView.transform.position;
-        float distance = direction.magnitude;
-        return distance;
     }
 }

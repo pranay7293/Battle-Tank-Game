@@ -7,5 +7,4 @@ public class BulletScriptableObject : ScriptableObject
     public float speedBullet;
     public ParticleSystem explosionType;
     public AudioClip explosionClip;
-    public AudioSource sourceAudio;
 }

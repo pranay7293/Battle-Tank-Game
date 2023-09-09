@@ -16,8 +16,9 @@ MonoBehaviour:
   tankName: Green Tank
   health: 100
   speed: 15
-  damage: 20
   tankView: {fileID: -245875660379686609, guid: e91c6f6c86cb8ac4d99f7b218bf36ad7,
     type: 3}
   shootClip: {fileID: 8300000, guid: 672a9941361ad494a99fba36759eca80, type: 3}
   explosion: {fileID: 19874418, guid: ee49a9a8678ecf8468eb488e1ac8d42b, type: 3}
+  minDealDamage: 2
+  maxDealDamage: 5
