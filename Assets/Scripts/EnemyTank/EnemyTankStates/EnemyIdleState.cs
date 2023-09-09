@@ -16,7 +16,7 @@ public class EnemyIdleState : EnemyStates
 
     public override void Tick()
     {
-        if (TimeElapsed > 1f)
+        if (TimeElapsed > 2f)
         {
             EnemyView.ChangeState(EnemyView.patrolState);
         }

@@ -12,7 +12,7 @@ public class EnemyService : GenericSingleton<EnemyService>
     private Vector3 randomPoint;
    
 
-    [SerializeField] public List<EnemyController> ListofEnemies { get; private set; } = new List<EnemyController>();
+    [SerializeField] public List<EnemyController> ListofEnemies { get;  set; } = new List<EnemyController>();
 
 
     private void Start()

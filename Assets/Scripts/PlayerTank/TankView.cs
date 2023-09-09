@@ -1,24 +1,31 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TankView : MonoBehaviour
+public class TankView : MonoBehaviour, IDamagable
 {
     [SerializeField] private Joystick joyStick;
     [SerializeField] private Rigidbody tankRb;
     [SerializeField] private BulletService bulletService;
     [SerializeField] private Button shootButton;
     [SerializeField] private LevelDestroyer levelDestroyer;
+    [SerializeField] private HealthBar healthBar;
 
     private TankController TankController { get; set; }
     private float movement;
     private float rotation;
     private TankModel TankModel;
+    private int dealDamage;
 
 
     private void Start()
-    {        
+    {
+        EventManager eventManager = FindObjectOfType<EventManager>();
         shootButton.onClick.AddListener(Shoot);
         TankModel = TankController.GetTankModel();
+        dealDamage = TankModel.DealDamage;
+        healthBar.UpdateHealthBar(TankModel.TankHealth);
+
+
     }
     private void Update()
     {
@@ -53,23 +60,46 @@ public class TankView : MonoBehaviour
     {
         return bulletService;
     }
+    public HealthBar GetHealthBar()
+    {
+        return healthBar;
+    }
     public void Shoot()
     {
-        AudioClip clip = TankController.GetTankModel().shootClip;
+        AudioClip clip = TankController.GetTankModel().ShootClip;
         gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
         TankController.ShootBullet();
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            if (collision.gameObject.TryGetComponent<BulletView>(out var bullet))
+            {
+                BulletType bulletType = bullet.GetBulletController().GetBulletType();
+                if (bulletType == BulletType.EnemyBullet)
+                {
+                    TakeDamage(dealDamage);
+                }
+            }
+        }
+    }
     public void DestroyTank()
     {
+        EventManager.TankDestroyed();
+
         LevelDestroyer.Instance.IsDead = true;
         if (TankController != null)
         {
            ParticleSystem explosion = Instantiate(TankModel.Explosion, gameObject.transform.position, Quaternion.identity);
-
+            explosion.Play();
             Destroy(gameObject);
-            Destroy(explosion, 1.5f);
+            Destroy(explosion.gameObject, 1.5f);
         }
     }
 
-
+    public void TakeDamage(int damage)
+    {
+        TankController.TakeDamage(damage);
+    }
 }

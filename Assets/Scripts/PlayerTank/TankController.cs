@@ -36,10 +36,20 @@ public class TankController
     }
     public void ShootBullet()
     {
-        BulletService.SpawnBullet(BulletService.transform);
+        BulletService.SpawnBullet(BulletService.transform, BulletType.PlayerBullet);
     }
-    public void DestroyTank()
+    public void TakeDamage(int damage)
     {
-        TankView.DestroyTank();
+        if (TankModel.TankHealth - damage <= 0)
+        {
+           TankView.GetHealthBar().UpdateHealthBar(0);
+            TankView.DestroyTank();
+        }
+        else
+        {
+            TankModel.TankHealth -= damage;
+            TankView.GetHealthBar().UpdateHealthBar(TankModel.TankHealth);
+        }
     }
+
 }

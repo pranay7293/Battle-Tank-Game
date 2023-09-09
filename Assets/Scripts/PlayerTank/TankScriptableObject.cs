@@ -7,9 +7,10 @@ public class TankScriptableObject : ScriptableObject
     public string tankName;
     public int health;
     public float speed;
-    public int damage;
     public TankView tankView;
     public AudioClip shootClip;
     public ParticleSystem explosion;
+    public int minDealDamage;
+    public int maxDealDamage;
 
 }

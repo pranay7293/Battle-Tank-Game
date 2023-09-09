@@ -13,7 +13,6 @@ public class BulletModel
         BulletSpeed = bulletScriptableObject.speedBullet;
         bulletExplosion = bulletScriptableObject.explosionType;
         bulletClip = bulletScriptableObject.explosionClip;
-        bulletAudioSource = bulletScriptableObject.sourceAudio;
     }
     public void SetBulletController(BulletController bulletCtrl)
     {
