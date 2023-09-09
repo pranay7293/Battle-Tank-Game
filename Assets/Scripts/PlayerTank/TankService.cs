@@ -19,12 +19,9 @@ public class TankService : GenericSingleton<TankService>
         TankScriptableObject tankObject = tankScriptableObjectList.playerTanks[randomNumber];
         Debug.Log("Created tank of type: " + tankObject.name);
         TankModel tankModel = new TankModel(tankObject);
-        TankController tankController = new TankController(tankModel, tankObject.tankView);
-        return tankController;
+        TankController = new TankController(tankModel, tankObject.tankView);
+        return TankController;
 
     }
-    public TankController GetTankController()
-    {
-        return TankController;
-    }
+   
 }

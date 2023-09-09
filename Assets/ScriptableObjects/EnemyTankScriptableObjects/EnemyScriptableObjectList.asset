@@ -14,4 +14,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemieTanks:
   - {fileID: 11400000, guid: a5e52dbc616491049b7f593d5914798a, type: 2}
-  - {fileID: 11400000, guid: 200ee3ca958c1ab429ab24bdceade6fb, type: 2}

@@ -5,62 +5,48 @@ public class EnemyView : MonoBehaviour
 {
     public EnemyModel EnemyModel { get; set; }
     public EnemyController EnemyController { get; set; }
-    public TankView PlayerTank1 { get => PlayerTank; set => PlayerTank = value; }
-
     public NavMeshAgent enemyAgent;
 
-    private TankView PlayerTank;
     private EnemyStates currentState;
     public EnemyIdleState idleState;
     public EnemyPatrolState patrolState;
     public EnemyChaseState chaseState;
     public EnemyAttackState attackState;
 
+    private bool inSightRange = false;
+    private bool inAttackRange = false;
+
 
     [SerializeField] private BulletService bulletService;
-    private int sightRange;
-    private int attackRange;
-    private bool playerInSightRange = false;
-    private bool playerInAttackRange = false;
 
     private void Start()
     {
-        PlayerTank = FindObjectOfType<TankView>();
-        EnemyModel = EnemyController.GetEnemyModel();
-        sightRange = EnemyModel.SightRange; 
-        attackRange = EnemyModel.AttackRange;
+        
         EnemyModel = EnemyController.GetEnemyModel();
         ChangeState(idleState);
         enemyAgent = GetComponent<NavMeshAgent>();
-        if (PlayerTank == null)
-        {
-            Debug.LogError("PlayerTank not found!");
-        }
     }
     void Update()
     {
-        if (PlayerTank != null)
-        {
+        if (TankService.Instance.TankController.TankView != null)
             currentState.Tick();
-        }
-            
-        playerInSightRange = Vector3.Distance(this.transform.position, PlayerTank.transform.position) <= sightRange;
-        playerInAttackRange = Vector3.Distance(this.transform.position, PlayerTank.transform.position) <= attackRange;
+        inSightRange = (EnemyController.Getdistance() <= EnemyModel.SightRange);
+        inAttackRange = (EnemyController.Getdistance() <= EnemyModel.AttackRange);
 
-        if (!playerInSightRange && !playerInAttackRange)
+        if(!inSightRange && !inAttackRange)
         {
             ChangeState(patrolState);
         }
-        else if (playerInSightRange && !playerInAttackRange)
+        else if (inSightRange && !inAttackRange)
         {
             ChangeState(chaseState);
         }
-        else if (playerInAttackRange && playerInSightRange)
+        else if (inSightRange && inAttackRange)
         {
             ChangeState(attackState);
         }
     }
-
+    
     public void ChangeState(EnemyStates newState)
     {
         if (currentState != null)
@@ -71,6 +57,7 @@ public class EnemyView : MonoBehaviour
         currentState = newState;
         currentState.OnEnterState();
     }
+    
     public AudioSource GetAudioSource()
     {
         return gameObject.GetComponent<AudioSource>();
@@ -100,7 +87,7 @@ public class EnemyView : MonoBehaviour
         ParticleSystem explosion = Instantiate(EnemyController.GetEnemyModel().EnemyExplosion, gameObject.transform.position, Quaternion.identity);
 
         Destroy(gameObject);
-        Destroy(explosion, 1.5f);
+        Destroy(explosion.gameObject, 1.5f);
     }
  
 }

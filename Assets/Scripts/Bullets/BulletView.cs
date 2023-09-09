@@ -15,7 +15,7 @@ public class BulletView : MonoBehaviour
     private void Start()
     {
         BulletController.ShootBullet();
-        Invoke(nameof(DestroyBullet), 4f);
+        Invoke(nameof(DestroyBullet), 3f);
     }
    
     private void OnCollisionEnter(Collision collision)
@@ -31,7 +31,7 @@ public class BulletView : MonoBehaviour
             if (gameObject != null)
                 BulletController.GetBulletModel().bulletAudioSource.PlayOneShot(BulletController.GetBulletModel().bulletClip);
 
-            Destroy(explosion, 2f);
+            Destroy(explosion.gameObject, 2f);
             Destroy(gameObject);            
         }
     }

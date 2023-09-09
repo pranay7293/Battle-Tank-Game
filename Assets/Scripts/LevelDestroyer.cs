@@ -1,29 +1,30 @@
 using System.Collections;
 using UnityEngine;
 
-public class LevelDestroyer : MonoBehaviour
+public class LevelDestroyer : GenericSingleton<LevelDestroyer>
 {
     private EnemyView[] enemies;
-    private TankView player;
     [SerializeField] private GameObject Level;
+    public bool IsDead { get; set; } = false;
+    private bool isRunning = false;
+
 
     void Start()
     {
-        this.gameObject.SetActive(true);
+        if (IsDead && !isRunning)
+        {
+            StartCoroutine(DestroyAll());
+        }
     }
 
     
     public IEnumerator DestroyAll()
     {
-        enemies = FindObjectsOfType<EnemyView>();
-        player = FindObjectOfType<TankView>();
-        yield return new WaitForSeconds(1);
-        Debug.Log("DestroyAll Coroutine Started");
-        yield return StartCoroutine(DestroyPlayer(1));
-        Debug.Log("DestroyPlayer Coroutine Finished");
-        yield return StartCoroutine(DestroyEnemies(2));
-        Debug.Log("DestroyEnemies Coroutine Finished");
-        yield return StartCoroutine(DestroyGround(3));
+        isRunning = true;
+        enemies = FindObjectsOfType<EnemyView>();        
+        StartCoroutine(DestroyEnemies(2));
+        StartCoroutine(DestroyGround(3));
+        yield return null;
       
     }
 
@@ -40,12 +41,5 @@ public class LevelDestroyer : MonoBehaviour
             if (enemies[i] != null)
                 enemies[i].GetComponent<EnemyView>().DestroyEnemyTank();
         }
-    }
-
-   
-    IEnumerator DestroyPlayer(int sec)
-    {
-        yield return new WaitForSeconds(sec);
-        Destroy(player);
     }
 }

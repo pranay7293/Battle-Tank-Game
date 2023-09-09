@@ -9,27 +9,33 @@ public class TankView : MonoBehaviour
     [SerializeField] private Button shootButton;
     [SerializeField] private LevelDestroyer levelDestroyer;
 
-    private TankController tankController;
+    private TankController TankController { get; set; }
     private float movement;
     private float rotation;
+    private TankModel TankModel;
 
 
     private void Start()
     {        
         shootButton.onClick.AddListener(Shoot);
+        TankModel = TankController.GetTankModel();
     }
     private void Update()
     {
         Movement();
 
-        if (movement != 0) 
+        if (movement != 0 ) 
         {
-            tankController.Move(movement, 5);
+            TankController.TankMove(movement);
         }
-        if (rotation != 0)
+        if (rotation != 0) 
         {
-            tankController.Rotate(rotation, 30);
+            TankController.TankRotate(rotation);
         }
+    }
+    private void LateUpdate()
+    {
+        Camera.main.transform.position = transform.position + new Vector3(-40f, 40f, -25f);
     }
 
     private void Movement()
@@ -41,7 +47,7 @@ public class TankView : MonoBehaviour
 
     public void SetTankController(TankController _tankController)
     {
-        tankController = _tankController;
+        TankController = _tankController;
     }
     public BulletService GetBulletService()
     {
@@ -49,10 +55,21 @@ public class TankView : MonoBehaviour
     }
     public void Shoot()
     {
-        AudioClip clip = tankController.GetTankModel().shootClip;
+        AudioClip clip = TankController.GetTankModel().shootClip;
         gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
-        tankController.ShootBullet();
+        TankController.ShootBullet();
+    }
+    public void DestroyTank()
+    {
+        LevelDestroyer.Instance.IsDead = true;
+        if (TankController != null)
+        {
+           ParticleSystem explosion = Instantiate(TankModel.Explosion, gameObject.transform.position, Quaternion.identity);
+
+            Destroy(gameObject);
+            Destroy(explosion, 1.5f);
+        }
     }
 
-    
+
 }

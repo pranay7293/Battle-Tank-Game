@@ -16,9 +16,9 @@ public class EnemyAttackState : EnemyStates
 
     public override void Tick()
     {
-        if (TankCtrl != null && EnemyView)
+        if (TankCtrl != null && EnemyView != null)
         {
-            transform.LookAt(TankCtrl.TankView.transform);
+            transform.LookAt(TankCtrl.TankView.transform.position);
 
             if (TimeElapsed > 1.5f)
             {
