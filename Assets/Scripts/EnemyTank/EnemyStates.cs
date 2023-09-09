@@ -10,7 +10,7 @@ public abstract class EnemyStates : MonoBehaviour
     private void Start()
     {
         EnemyView = GetComponent<EnemyView>();
-        TankCtrl = TankService.Instance.GetTankController();
+        TankCtrl = TankService.Instance.TankController;
     }
 
     public virtual void OnEnterState()
@@ -22,12 +22,4 @@ public abstract class EnemyStates : MonoBehaviour
         this.enabled = false;
     }
     public abstract void Tick();
-
-    public float GetDistanceFromPlayer()
-    {
-        if (TankCtrl != null)
-            return Vector3.Distance(transform.position, TankCtrl.TankView.transform.position);
-        else
-            return 0f;
-    }
 }

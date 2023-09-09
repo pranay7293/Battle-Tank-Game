@@ -111,7 +111,7 @@ NavMeshSettings:
     agentRadius: 1.5
     agentHeight: 2
     agentSlope: 5
-    agentClimb: 0.25
+    agentClimb: 0.2
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 0
@@ -230,10 +230,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CompleteLevelArt
       objectReference: {fileID: 0}
-    - target: {fileID: 1633404186159690, guid: 0aac6aef14f064c3fb626270cff2683b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4366463266053016, guid: 0aac6aef14f064c3fb626270cff2683b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -284,7 +280,7 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8229688553344924673, guid: 0aac6aef14f064c3fb626270cff2683b,
+    - target: {fileID: 9020914147198948002, guid: 0aac6aef14f064c3fb626270cff2683b,
         type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -431,8 +427,8 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
-  orthographic: 1
+  field of view: 30
+  orthographic: 0
   orthographic size: 10
   m_Depth: -1
   m_CullingMask:

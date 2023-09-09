@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6980022706829878231}
   - component: {fileID: 4101268204154544460}
   - component: {fileID: 6151872139089140154}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 668453623763958974}
   - component: {fileID: 4944823016297492321}
   - component: {fileID: 2051195015811690947}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: FireButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 8458400534815437025}
   - component: {fileID: 2761506188038676477}
   - component: {fileID: -245875660379686609}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GreenTank
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -270,9 +270,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6959802793688171735}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -308,8 +308,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8147057, y: 1.8590692, z: 2.5445745}
-  m_Center: {x: 0.019188464, y: -0.4295346, z: 0.09216368}
+  m_Size: {x: 1.8147057, y: 1.7201477, z: 2.5445745}
+  m_Center: {x: 0.019188464, y: -0.36007386, z: 0.09216368}
 --- !u!82 &2761506188038676477
 AudioSource:
   m_ObjectHideFlags: 0
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 4949237960783808267}
   - component: {fileID: 6015872202258663124}
   - component: {fileID: 4618901294771038422}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4822017309752015836}
   - component: {fileID: 1628581065324814428}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BulletSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,6 +614,30 @@ PrefabInstance:
     - target: {fileID: 100112, guid: 89212db546a6ba847a34be320400c655, type: 3}
       propertyPath: m_Name
       value: TankG
+      objectReference: {fileID: 0}
+    - target: {fileID: 100112, guid: 89212db546a6ba847a34be320400c655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100114, guid: 89212db546a6ba847a34be320400c655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100116, guid: 89212db546a6ba847a34be320400c655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100118, guid: 89212db546a6ba847a34be320400c655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100120, guid: 89212db546a6ba847a34be320400c655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100124, guid: 89212db546a6ba847a34be320400c655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400112, guid: 89212db546a6ba847a34be320400c655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -795,6 +819,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fixed Joystick
       objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2929252285020697096, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -804,6 +833,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252285020697097, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -15,10 +15,12 @@ public class EnemyChaseState : EnemyStates
 
     public override void Tick()
     {
-        if (EnemyView && TankCtrl != null)
+        if (EnemyView != null && TankCtrl != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, TankCtrl.TankView.transform.position, EnemyView.EnemyModel.EnemySpeed * Time.deltaTime * 0.25f);
-            transform.LookAt(TankCtrl.TankView.transform);
+            Vector3 direction = (TankCtrl.TankView.transform.position - transform.position).normalized;
+
+            transform.position += EnemyView.EnemyModel.EnemySpeed * Time.deltaTime * direction;
+            transform.LookAt(TankCtrl.TankView.transform.position);
         }
     }
 }

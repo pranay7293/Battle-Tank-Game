@@ -5,8 +5,10 @@ public class EnemyModel
     public EnemyController EnemyController { get; set; }
     public float EnemySpeed { get; set; }
     public float EnemyRange { get; set; }
-    public int SightRange { get; set; }
-    public int AttackRange { get; set; }
+    public float SightRange { get; set; }
+    public float AttackRange { get; set; }
+
+
 
     public ParticleSystem EnemyExplosion { get; set; }
     public AudioClip ShootClip { get; set; }
@@ -20,5 +22,5 @@ public class EnemyModel
         ShootClip = enemyScriptableObject.shootClip;
         SightRange = enemyScriptableObject.sightRange;
         AttackRange = enemyScriptableObject.attackRange;
-    }
+    }   
 }

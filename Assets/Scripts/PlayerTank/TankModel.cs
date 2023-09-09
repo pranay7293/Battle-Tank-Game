@@ -5,6 +5,8 @@ public class TankModel
     public float TankSpeed { get; private set; }
     public int TankHealth { get; private set; }
     public int TankDamage { get; private set; }
+    public ParticleSystem Explosion { get; }
+
     public TankTypes TankType { get;  }
     public AudioClip shootClip;
 
@@ -15,6 +17,7 @@ public class TankModel
         TankDamage = tankScriptableObject.damage;
         TankType = tankScriptableObject.tanktype;
         shootClip = tankScriptableObject.shootClip;
+        Explosion = tankScriptableObject.explosion;
 
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public class EnemyService : MonoBehaviour
+public class EnemyService : GenericSingleton<EnemyService>
 {
     [SerializeField] private EnemyScriptableObjectList enemyTanksList;
     [SerializeField] private float range;
