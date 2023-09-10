@@ -5,7 +5,10 @@ public class TankService : GenericSingleton<TankService>
 {
     [SerializeField]
     private TankScriptableObjectList tankScriptableObjectList;
-    public TankController TankController { get; private set; }
+
+    private TankController tankController;
+
+    public TankController TankController => tankController;
 
 
     private void Start()
@@ -13,15 +16,13 @@ public class TankService : GenericSingleton<TankService>
         CreateNewTank();
     }
 
-    private TankController CreateNewTank()
+    private void CreateNewTank()
     {
-        int randomNumber = (int)Random.Range(0, tankScriptableObjectList.playerTanks.Length - 1);
+        int randomNumber = (int)Random.Range(0, tankScriptableObjectList.playerTanks.Length);
         TankScriptableObject tankObject = tankScriptableObjectList.playerTanks[randomNumber];
         Debug.Log("Created tank of type: " + tankObject.name);
         TankModel tankModel = new TankModel(tankObject);
-        TankController = new TankController(tankModel, tankObject.tankView);
-        return TankController;
-
+        tankController = new TankController(tankModel, tankObject.tankView);
     }
    
 }

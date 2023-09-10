@@ -2,7 +2,7 @@ using UnityEngine;
 public class EnemyController
 {
     private EnemyModel EnemyModel { get; set; }
-    private EnemyView EnemyView { get; set; }
+    public EnemyView EnemyView { get; set; }
     private BulletService BulletService { get; set; }
 
     private TankController TankController { get; set; }
