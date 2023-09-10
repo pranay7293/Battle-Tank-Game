@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TankView : MonoBehaviour, IDamagable
+public class TankView : Subject, IDamagable
 {
     [SerializeField] private Joystick joyStick;
     [SerializeField] private Rigidbody tankRb;
@@ -66,6 +66,7 @@ public class TankView : MonoBehaviour, IDamagable
     }
     public void Shoot()
     {
+        NotifyBulletsFiredObservers();
         AudioClip clip = TankController.GetTankModel().ShootClip;
         gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
         TankController.ShootBullet();

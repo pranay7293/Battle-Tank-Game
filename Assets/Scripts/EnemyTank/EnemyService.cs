@@ -10,8 +10,11 @@ public class EnemyService : GenericSingleton<EnemyService>
     [SerializeField] private float range;
     [SerializeField] private int spawnCount;
     private Vector3 randomPoint;
-   
+    [SerializeField] private AchievementSystem achievementSystem;
 
+    private EnemyController enemyController;
+
+    public EnemyController EnemyController => enemyController;
     [SerializeField] public List<EnemyController> ListofEnemies { get;  set; } = new List<EnemyController>();
 
 
@@ -19,20 +22,25 @@ public class EnemyService : GenericSingleton<EnemyService>
     {
         for(int i  = 0; i < spawnCount; i++)
         {
-            if (RandomPoint(Vector3.zero, range, out randomPoint))
+            for (int j = 0; j < 10; j++)
             {
-                SpawnEnemy(randomPoint);
-            } 
+                if (RandomPoint(Vector3.zero, range, out randomPoint) && spawnCount > 0)
+                    break;
+            }
+            SpawnEnemy(randomPoint);
         }
     }
 
     private void SpawnEnemy(Vector3 spawnPoint)
     {
-        int randomNumber = (int)Random.Range(0f, enemyTanksList.enemieTanks.Length - 1);
+        int randomNumber = (int)Random.Range(0f, enemyTanksList.enemieTanks.Length);
         EnemyScriptableObject obj = enemyTanksList.enemieTanks[randomNumber];
         EnemyModel enemyModel = new EnemyModel(obj);
-        EnemyController enemyController = new EnemyController(enemyModel, obj.enemyView, spawnPoint);
+        enemyController = new EnemyController(enemyModel, obj.enemyView, spawnPoint);
         ListofEnemies.Add(enemyController);
+        enemyController.EnemyView.AddDamageObservers(achievementSystem);
+        enemyController.EnemyView.AddKillsObservers(achievementSystem);
+
     }
 
     bool RandomPoint(Vector3 center, float range, out Vector3 result)

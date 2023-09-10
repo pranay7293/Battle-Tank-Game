@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyView : MonoBehaviour, IDamagable
+public class EnemyView : Subject, IDamagable
 {
     public EnemyModel EnemyModel { get; set; }
     public EnemyController EnemyController { get; set; }
@@ -34,7 +34,7 @@ public class EnemyView : MonoBehaviour, IDamagable
     }
     void Update()
     {
-        if (TankService.Instance.TankController.TankView != null)
+        if (TankService.Instance.TankController != null && TankService.Instance.TankController.TankView != null)
             currentState.Tick();
         inSightRange = (EnemyController.Getdistance() <= EnemyModel.SightRange);
         inAttackRange = (EnemyController.Getdistance() <= EnemyModel.AttackRange);
@@ -90,6 +90,7 @@ public class EnemyView : MonoBehaviour, IDamagable
                 if (bulletType == BulletType.PlayerBullet)
                 {
                     TakeDamage(dealDamage);
+                    NotifyDamageObservers(dealDamage);
                 }
             }
         }
@@ -97,6 +98,7 @@ public class EnemyView : MonoBehaviour, IDamagable
 
     public void DestroyEnemyTank()
     {
+        NotifyKillsObservers();
         ParticleSystem explosion = Instantiate(EnemyController.GetEnemyModel().EnemyExplosion, gameObject.transform.position, Quaternion.identity);
         explosion.Play();
         Destroy(gameObject);
@@ -105,7 +107,7 @@ public class EnemyView : MonoBehaviour, IDamagable
 
     public void TakeDamage(int damage)
     {
-        EnemyController.ApplyDamage(damage);   
+        EnemyController.ApplyDamage(damage);        
     }
 }
 
