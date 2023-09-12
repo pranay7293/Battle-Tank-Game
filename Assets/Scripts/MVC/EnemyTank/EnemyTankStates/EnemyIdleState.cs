@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyIdleState : EnemyStates
 {
     private float TimeElapsed { get; set; } = 0f;
-
+    private float idleTime = 2f;
     public override void OnEnterState()
     {
         base.OnEnterState();
@@ -16,7 +16,7 @@ public class EnemyIdleState : EnemyStates
 
     public override void Tick()
     {
-        if (TimeElapsed > 2f)
+        if (TimeElapsed > idleTime)
         {
             EnemyView.ChangeState(EnemyView.patrolState);
         }

@@ -30,9 +30,5 @@ public class EnemyTankPool : ServicePool <EnemyController>
             pooledItem.IsUsed = false;
             enemyController.Disable();
         }
-        else
-        {
-            Debug.LogError("Tried to return an item not managed by this pool.");
-        }
     }
 }

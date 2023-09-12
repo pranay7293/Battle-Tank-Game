@@ -41,7 +41,7 @@ public class BulletView : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player")) 
             {
-                StartCoroutine(DisablePlayerBullet(2)); //Do Nothing, When Player Bullet hits Player
+                StartCoroutine(DisablePlayerBullet(2)); //Do Nothing, When Player Bullet hits another Player
             }
             else
             {
@@ -53,7 +53,7 @@ public class BulletView : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                StartCoroutine(DisableEnemyBullet(2)); //Do Nothing, When Enemy Bullet hits Enemy
+                StartCoroutine(DisableEnemyBullet(2)); //Do Nothing, When Enemy Bullet hits another Enemy
             }
             else
             {

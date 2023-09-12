@@ -20,7 +20,6 @@ public class EnemyService : GenericSingleton<EnemyService>
 
     private void Start()
     {
-        Debug.Log("Spawn Count: " + spawnCount);
         for (int i  = 0; i < spawnCount; i++)
         {
             for (int j = 0; j < 10; j++)
