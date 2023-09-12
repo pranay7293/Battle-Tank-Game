@@ -36,10 +36,13 @@ public class BulletView : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        BulletType bulletType = BulletController.GetBulletType();
+        TankView tankView = collision.gameObject.GetComponent<TankView>();
+        EnemyView enemyView = collision.gameObject.GetComponent<EnemyView>();   
 
-        if (this.gameObject.CompareTag("PlayerBullet"))
+        if (bulletType == BulletType.PlayerBullet)
         {
-            if (collision.gameObject.CompareTag("Player")) 
+            if (tankView != null) 
             {
                 StartCoroutine(DisablePlayerBullet(2)); //Do Nothing, When Player Bullet hits another Player
             }
@@ -49,9 +52,9 @@ public class BulletView : MonoBehaviour
                 StartCoroutine(DisablePlayerBullet(2));
             }   
         }
-        else if (this.gameObject.CompareTag("EnemyBullet"))
+        else if (bulletType == BulletType.EnemyBullet)
         {
-            if (collision.gameObject.CompareTag("Enemy"))
+            if (enemyView != null)
             {
                 StartCoroutine(DisableEnemyBullet(2)); //Do Nothing, When Enemy Bullet hits another Enemy
             }

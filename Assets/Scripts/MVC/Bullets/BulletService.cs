@@ -13,28 +13,24 @@ public class BulletService : MonoBehaviour
         playerBulletPool = TankService.Instance.TankController.TankView.GetBulletService().GetComponent<BulletPool>();
         enemyBulletPool = EnemyService.Instance.EnemyController.EnemyView.GetBulletService().GetComponent<BulletPool>();
     }
-    public BulletController PlayerSpawnBullet(Transform spawn, string tag)
+    public BulletController PlayerSpawnBullet(Transform spawn, BulletType bulletType)
     {
         BulletScriptableObject obj = bulletList.bullets[0];
         BulletModel bulletModel = new BulletModel(obj);
-        BulletController = playerBulletPool.GetBullet(obj.bulletView, bulletModel, spawn);
-        BulletController.GetBulletGameObject().tag = tag;
-
-        BulletController.ShootBullet();
+        BulletController = playerBulletPool.GetBullet(obj.bulletView, bulletModel, spawn, bulletType);
         BulletController.SetTransform(spawn);
+        BulletController.ShootBullet();
         BulletController.Enable();
 
         return BulletController;
     }
-    public BulletController EnemySpawnBullet(Transform spawn, string tag)
+    public BulletController EnemySpawnBullet(Transform spawn, BulletType bulletType)
     {
         BulletScriptableObject obj = bulletList.bullets[0];
         BulletModel bulletModel = new BulletModel(obj);
-        BulletController = enemyBulletPool.GetBullet(obj.bulletView, bulletModel, spawn);
-        BulletController.GetBulletGameObject().tag = tag;
-
-        BulletController.ShootBullet();
+        BulletController = enemyBulletPool.GetBullet(obj.bulletView, bulletModel, spawn, bulletType);
         BulletController.SetTransform(spawn);
+        BulletController.ShootBullet();
         BulletController.Enable();
 
         return BulletController;
