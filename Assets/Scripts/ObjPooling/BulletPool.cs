@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletPool : ServicePool<BulletController>
@@ -29,10 +27,6 @@ public class BulletPool : ServicePool<BulletController>
         {
             pooledItem.IsUsed = false;
             bulletController.Disable();
-        }
-        else
-        {
-            Debug.LogError("Tried to return an item not managed by this pool.");
         }
     }
 }

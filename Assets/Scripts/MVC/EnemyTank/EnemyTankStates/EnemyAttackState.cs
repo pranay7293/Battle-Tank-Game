@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyAttackState : EnemyStates
 {
     private float TimeElapsed { get; set; } = 0f;
-
+    private float attackReset = 1.5f;
     public override void OnEnterState()
     {
         base.OnEnterState();
@@ -20,12 +20,12 @@ public class EnemyAttackState : EnemyStates
         {
             transform.LookAt(TankCtrl.TankView.transform.position);
 
-            if (TimeElapsed > 1.5f)
+            if (TimeElapsed > attackReset)
             {
                 EnemyView.EnemyController.Fire();
                 TimeElapsed = 0f;
             }
-            if (TimeElapsed <= 1.5f)
+            if (TimeElapsed <= attackReset)
             {
                 TimeElapsed += Time.deltaTime;
             }

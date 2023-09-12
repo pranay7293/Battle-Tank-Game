@@ -19,13 +19,10 @@ public class TankView : Subject, IDamagable
 
     private void Start()
     {
-        EventManager eventManager = FindObjectOfType<EventManager>();
         shootButton.onClick.AddListener(Shoot);
         TankModel = TankController.GetTankModel();
         dealDamage = TankModel.DealDamage;
         healthBar.UpdateHealthBar(TankModel.TankHealth);
-
-
     }
     private void Update()
     {
@@ -81,8 +78,6 @@ public class TankView : Subject, IDamagable
     public void DestroyTank()
     {
         EventManager.TankDestroyed();
-
-        LevelDestroyer.Instance.IsDead = true;
         if (TankController != null)
         {
            ParticleSystem explosion = Instantiate(TankModel.Explosion, gameObject.transform.position, Quaternion.identity);

@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.Services.Analytics;
 using UnityEngine;
 
 public class ServicePool<T> : MonoBehaviour where T : class
@@ -34,11 +31,8 @@ public class ServicePool<T> : MonoBehaviour where T : class
             };
 
             pooledItems.Add(pooledItem);
-            Debug.Log("New item added to pool. Total items: " + pooledItems.Count);
             return pooledItem.Item;
         }
-
-        Debug.LogError("Failed to create a new item for the pool.");
         return null;
     }
 
@@ -53,12 +47,8 @@ public class ServicePool<T> : MonoBehaviour where T : class
         if (pooledItem != null)
         {
             pooledItem.IsUsed = false;
-            Debug.Log("Item returned to the pool." + pooledItem);
         }
-        else
-        {
-            Debug.LogError("Tried to return an item not managed by this pool.");
-        }
+
     }
     protected class PooledItems<KT>
     {
