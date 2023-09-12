@@ -6,7 +6,7 @@ public class TankController
     public TankView TankView { get; }
     private readonly BulletService BulletService;
     private readonly Rigidbody tankRb;
-
+    private readonly string type = "PlayerBullet";
     public TankController(TankModel _tankModel, TankView _tankView)
     {
         TankModel = _tankModel;
@@ -36,7 +36,7 @@ public class TankController
     }
     public void ShootBullet()
     {
-        BulletService.SpawnBullet(BulletService.transform, BulletType.PlayerBullet);
+        BulletService.PlayerSpawnBullet(BulletService.transform, type);
     }
     public void TakeDamage(int damage)
     {

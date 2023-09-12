@@ -13,14 +13,15 @@ public class EnemyService : GenericSingleton<EnemyService>
     [SerializeField] private AchievementSystem achievementSystem;
 
     private EnemyController enemyController;
-
+    public EnemyTankPool enemyTankPool;
     public EnemyController EnemyController => enemyController;
     [SerializeField] public List<EnemyController> ListofEnemies { get;  set; } = new List<EnemyController>();
 
 
     private void Start()
     {
-        for(int i  = 0; i < spawnCount; i++)
+        Debug.Log("Spawn Count: " + spawnCount);
+        for (int i  = 0; i < spawnCount; i++)
         {
             for (int j = 0; j < 10; j++)
             {
@@ -36,8 +37,9 @@ public class EnemyService : GenericSingleton<EnemyService>
         int randomNumber = (int)Random.Range(0f, enemyTanksList.enemieTanks.Length);
         EnemyScriptableObject obj = enemyTanksList.enemieTanks[randomNumber];
         EnemyModel enemyModel = new EnemyModel(obj);
-        enemyController = new EnemyController(enemyModel, obj.enemyView, spawnPoint);
+        enemyController = enemyTankPool.GetEnemyTank(enemyModel, obj.enemyView, spawnPoint);
         ListofEnemies.Add(enemyController);
+        enemyController.Enable();
         enemyController.EnemyView.AddDamageObservers(achievementSystem);
         enemyController.EnemyView.AddKillsObservers(achievementSystem);
 

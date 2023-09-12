@@ -1,0 +1,503 @@
+Using pre-set license
+Built from '2022.3/release' branch; Version is '2022.3.5f1 (9674261d40ee) revision 9860134'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22621) 64bit CoreSingleLanguage' Language: 'en' Physical Memory: 6017 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+E:/Unity Games/BTG/Battle-Tank-Game
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+64457
+Successfully changed project path to: E:/Unity Games/BTG/Battle-Tank-Game
+E:/Unity Games/BTG/Battle-Tank-Game
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [14068] Host "[IP] 192.168.1.5 [Port] 0 [Flags] 2 [Guid] 1203867092 [EditorId] 1203867092 [Version] 1048832 [Id] WindowsEditor(7,PranayAnumandla) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [14068] Host "[IP] 192.168.1.5 [Port] 0 [Flags] 2 [Guid] 1203867092 [EditorId] 1203867092 [Version] 1048832 [Id] WindowsEditor(7,PranayAnumandla) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 668.84 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.5f1 (9674261d40ee)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path E:/Unity Games/BTG/Battle-Tank-Game/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1650 (ID=0x1f91)
+    Vendor:   NVIDIA
+    VRAM:     3949 MB
+    Driver:   31.0.15.2656
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56464
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.015307 seconds.
+- Loaded All Assemblies, in  1.505 seconds
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 558 ms
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.232 seconds
+Domain Reload Profiling: 2734ms
+	BeginReloadAssembly (154ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (491ms)
+	RebuildNativeTypeToScriptingClass (23ms)
+	initialDomainReloadingComplete (121ms)
+	LoadAllAssembliesAndSetupDomain (711ms)
+		LoadAssemblies (152ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (697ms)
+			TypeCache.Refresh (695ms)
+				TypeCache.ScanAssembly (673ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (1233ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1103ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (767ms)
+			SetLoadedEditorAssemblies (9ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (3ms)
+			ProcessInitializeOnLoadAttributes (186ms)
+			ProcessInitializeOnLoadMethodAttributes (138ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  2.961 seconds
+Refreshing native plugins compatible for Editor in 105.27 ms, found 2 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.898 seconds
+Domain Reload Profiling: 3855ms
+	BeginReloadAssembly (269ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (9ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (39ms)
+	RebuildCommonClasses (60ms)
+	RebuildNativeTypeToScriptingClass (20ms)
+	initialDomainReloadingComplete (131ms)
+	LoadAllAssembliesAndSetupDomain (2475ms)
+		LoadAssemblies (2240ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (368ms)
+			TypeCache.Refresh (334ms)
+				TypeCache.ScanAssembly (308ms)
+			ScanForSourceGeneratedMonoScriptInfo (29ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (899ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (680ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (32ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (80ms)
+			ProcessInitializeOnLoadAttributes (311ms)
+			ProcessInitializeOnLoadMethodAttributes (242ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.21 seconds
+Refreshing native plugins compatible for Editor in 10.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2690 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (358.1 KB). Loaded Objects now: 3139.
+Memory consumption went from 125.8 MB to 125.5 MB.
+Total: 17.239100 ms (FindLiveObjects: 0.414600 ms CreateObjectMapping: 0.119000 ms MarkObjects: 16.222500 ms  DeleteObjects: 0.480700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/EnemyView.cs: 786d282df67e08bb00fa44434347a4ba -> 9cbce59167e59d9060196b4bb6fbec26
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/EnemyAttackState.cs: d246f509c40cacde6cbe0e8a29a2917b -> 5b55df549f86193bd476cf1bec1cbe2a
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/ServicePool.cs: 888c7d98557f020f9a2c8c6200ba75a6 -> 0cdf409b5aa8d4c25876d72b5c6a3b60
+  custom:scripting/monoscript/fileName/BulletView.cs: 6bc6ecca1bd71ab881c6b2336db82377 -> 7c83662f13bf0dd0e8644b98e7559196
+  custom:scripting/monoscript/fileName/EnemyIdleState.cs: 76cfb923676a85fe80231f66aaf3ee5b -> 69d9c17592ce9f4849c2224ba6811a36
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/EnemyService.cs: 781a1d420ed58ac916c99e0b1357269c -> 4934ba800b35d95c9ad255c7eedbf385
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/ServicePool1.cs: f6f7ac54f83e2b020efbffb86946f37f -> 
+  custom:scripting/monoscript/fileName/TankScriptableObjectList.cs: 44e19efbbfb5de6af4e05c187c849fc0 -> 889b30c21bd1cbf6cd89305af91af385
+  custom:scripting/monoscript/fileName/EnemyStates.cs: d7b7649de8bc368aafefff6342f20f74 -> a4bb6cf05cbd32a18c32d216d97ea99d
+  custom:scripting/monoscript/fileName/EnemyHealth.cs: e07955fcc26f7ca9605fdaf70d2e6e10 -> a4d027726692f4f1a1dc379aafbb87e2
+  custom:scripting/monoscript/fileName/TankView.cs: 5e4d85ae52e214aacbb2fb4121d913f1 -> 12b4053d925ced6d95df7d19c3d567db
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/TankScriptableObject.cs: 38568c10a70fee2c5914e26dff3256ce -> 207097d1934ccfed5392fe2a5e20128e
+  custom:scripting/monoscript/fileName/EnemyController.cs: 8442503c084fb948dcd9c70d1c488e5d -> 533ca32f7eae77d882167cda93499271
+  custom:scripting/monoscript/fileName/TankService.cs: 5ad64a9baa1d1db5e6d13e8bc5c1eb50 -> fba8a94bcee9298c941b77eb150e09c5
+  custom:scripting/monoscript/fileName/TankModel.cs: f714b948a56b9f1d9797150297ac704f -> 2118fff729dc6ace75b8ddc22ca3e081
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BulletModel.cs: be7ae4f0a00877138ad43112696aa153 -> 4f018313bd596b5125c8cafff06df16c
+  custom:scripting/monoscript/fileName/EnemyScriptableObjectList.cs: f523b021fd106c2ad52de29998836508 -> 74d6652ab0d0b2704eb1638e14a82233
+  custom:scripting/monoscript/fileName/BulletService.cs: 37b061f5e35882ba3f387e244c24ace6 -> ae5d6559bc6562241876030cce2845e6
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/HealthBar.cs: 671774bd9f5df513e52f8c10d14b90d5 -> e02a13ebfecfefd70171c0594cf22391
+  custom:scripting/monoscript/fileName/EnemyChaseState.cs: e192f2c1c31bd50e1a9bbf0c8c8ee4ec -> 508f27f32801e1a55bed81d2ef939ad1
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/EnemyPatrolState.cs: e37b68ea712a4c39ebb77cf9a7989a1e -> 09a1dc3d2ffb0d80d13ed1b29e04109c
+  custom:scripting/monoscript/fileName/EnemyModel.cs: 8f3a821001d7f96d800bcef0d5f52f21 -> 3c03d1737d288ee64fbdc94342a39d98
+  custom:scripting/monoscript/fileName/TankController.cs: 819bfb60cc203d1a4d7fc748eaf110e6 -> 42e12ae5751c998ee48e0e6eff2b6eb8
+  custom:scripting/monoscript/fileName/BulletController.cs: 5fc006f99f133afb32930278602f4ab6 -> 55665420895c426dc9ee2c8b47701135
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BulletScriptableObjectList.cs: 9a134a34550d51f496a5e4438acc324c -> a34454a02e629943064e47476799f6a7
+  custom:scripting/monoscript/fileName/BulletScriptableObject.cs: b0dbb347d01b25dfd85b411c3d254ee1 -> bec96aee1e919e5e9282389e5c67545f
+  custom:scripting/monoscript/fileName/EnemyScriptableObject.cs: 68b94711112ec34153ec188e5cdcfce5 -> 1cd2bbbb21b7eb42f51eaff0124f6eb8
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+========================================================================
+Received Import Request.
+  Time since last request: 461811.352890 seconds.
+  path: Assets/Prefabs/BlueTank.prefab
+  artifactKey: Guid(15e2aa35d42c22e44a33bde33a41c90e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BlueTank.prefab using Guid(15e2aa35d42c22e44a33bde33a41c90e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36563f8f5132b6fc600ffc801d1f21e4') in 2.086853 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 866
+========================================================================
+Received Import Request.
+  Time since last request: 0.000079 seconds.
+  path: Assets/Prefabs/EnemyTank.prefab
+  artifactKey: Guid(2d295865c923c3b45a23e01c150af9a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EnemyTank.prefab using Guid(2d295865c923c3b45a23e01c150af9a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4be41b111d529b111093b685e664a364') in 0.082445 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 123
+========================================================================
+Received Import Request.
+  Time since last request: 0.234495 seconds.
+  path: Assets/Prefabs/EnemyTank.prefab
+  artifactKey: Guid(2d295865c923c3b45a23e01c150af9a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EnemyTank.prefab using Guid(2d295865c923c3b45a23e01c150af9a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e61c81dc581a3c4b4296f880ad66b6d') in 0.050881 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 123
+========================================================================
+Received Import Request.
+  Time since last request: 27.728595 seconds.
+  path: Assets/Prefabs/RedTank.prefab
+  artifactKey: Guid(92528d2ee6e77164a9e31a2a6349d07a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/RedTank.prefab using Guid(92528d2ee6e77164a9e31a2a6349d07a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec610ae5e1e731490b19ab9b1f15465a') in 0.096771 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 864
+========================================================================
+Received Import Request.
+  Time since last request: 10.852469 seconds.
+  path: Assets/Prefabs/GreenTank.prefab
+  artifactKey: Guid(e91c6f6c86cb8ac4d99f7b218bf36ad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GreenTank.prefab using Guid(e91c6f6c86cb8ac4d99f7b218bf36ad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5155aca436da9673220df76d2d3a50d8') in 0.089002 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 864
+========================================================================
+Received Import Request.
+  Time since last request: 15.631467 seconds.
+  path: ProjectSettings/TagManager.asset
+  artifactKey: Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing ProjectSettings/TagManager.asset using Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1258718f9cb524c1e5b5601c349cf0f') in 0.001488 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 11.514429 seconds.
+  path: Assets/Prefabs/BlueTank.prefab
+  artifactKey: Guid(15e2aa35d42c22e44a33bde33a41c90e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BlueTank.prefab using Guid(15e2aa35d42c22e44a33bde33a41c90e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28e9222cdf0359f4b95460849d28e39e') in 0.092801 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 866
+========================================================================
+Received Import Request.
+  Time since last request: 238.355469 seconds.
+  path: Assets/Prefabs/BlueTank.prefab
+  artifactKey: Guid(15e2aa35d42c22e44a33bde33a41c90e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BlueTank.prefab using Guid(15e2aa35d42c22e44a33bde33a41c90e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3610ef390551bf5abf0487b1de543794') in 2.545457 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 866
+========================================================================
+Received Import Request.
+  Time since last request: 0.000065 seconds.
+  path: Assets/Prefabs/RedTank.prefab
+  artifactKey: Guid(92528d2ee6e77164a9e31a2a6349d07a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/RedTank.prefab using Guid(92528d2ee6e77164a9e31a2a6349d07a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5e0495907c109ba465668d16e35edf9') in 0.208232 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 864
+========================================================================
+Received Import Request.
+  Time since last request: 25.242995 seconds.
+  path: Assets/Prefabs/BlueTank.prefab
+  artifactKey: Guid(15e2aa35d42c22e44a33bde33a41c90e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BlueTank.prefab using Guid(15e2aa35d42c22e44a33bde33a41c90e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca7d6e18fee60ef60e31e09f85d46e9f') in 0.803506 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 866
+========================================================================
+Received Import Request.
+  Time since last request: 85.619537 seconds.
+  path: Assets/Prefabs/BlueTank.prefab
+  artifactKey: Guid(15e2aa35d42c22e44a33bde33a41c90e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BlueTank.prefab using Guid(15e2aa35d42c22e44a33bde33a41c90e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '302e7aa358b9e1bbb2a0b770aa0dd1bd') in 1.178970 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 866
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Prefabs/RedTank.prefab
+  artifactKey: Guid(92528d2ee6e77164a9e31a2a6349d07a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/RedTank.prefab using Guid(92528d2ee6e77164a9e31a2a6349d07a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '025940183dd71e33e3c57eb308370f0a') in 0.485766 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 864
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  4.151 seconds
+Refreshing native plugins compatible for Editor in 276.11 ms, found 2 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in 10.207 seconds
+Domain Reload Profiling: 14354ms
+	BeginReloadAssembly (1043ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (48ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (1ms)
+		CreateAndSetChildDomain (607ms)
+	RebuildCommonClasses (67ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (66ms)
+	LoadAllAssembliesAndSetupDomain (2952ms)
+		LoadAssemblies (2569ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (644ms)
+			TypeCache.Refresh (621ms)
+				TypeCache.ScanAssembly (496ms)
+			ScanForSourceGeneratedMonoScriptInfo (16ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (10207ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (910ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (64ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (111ms)
+			ProcessInitializeOnLoadAttributes (402ms)
+			ProcessInitializeOnLoadMethodAttributes (314ms)
+			AfterProcessingInitializeOnLoad (12ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (12ms)
+Refreshing native plugins compatible for Editor in 8.38 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2649 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 61 unused Assets / (332.7 KB). Loaded Objects now: 3151.
+Memory consumption went from 116.7 MB to 116.3 MB.
+Total: 16.954600 ms (FindLiveObjects: 0.366700 ms CreateObjectMapping: 0.265300 ms MarkObjects: 14.764800 ms  DeleteObjects: 1.555800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/EnemyView.cs: 786d282df67e08bb00fa44434347a4ba -> 9cbce59167e59d9060196b4bb6fbec26
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/EnemyAttackState.cs: d246f509c40cacde6cbe0e8a29a2917b -> 5b55df549f86193bd476cf1bec1cbe2a
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/ServicePool.cs: 888c7d98557f020f9a2c8c6200ba75a6 -> 0cdf409b5aa8d4c25876d72b5c6a3b60
+  custom:scripting/monoscript/fileName/BulletView.cs: 6bc6ecca1bd71ab881c6b2336db82377 -> 7c83662f13bf0dd0e8644b98e7559196
+  custom:scripting/monoscript/fileName/EnemyIdleState.cs: 76cfb923676a85fe80231f66aaf3ee5b -> 69d9c17592ce9f4849c2224ba6811a36
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/EnemyService.cs: 781a1d420ed58ac916c99e0b1357269c -> 4934ba800b35d95c9ad255c7eedbf385
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/ServicePool1.cs: f6f7ac54f83e2b020efbffb86946f37f -> 
+  custom:scripting/monoscript/fileName/TankScriptableObjectList.cs: 44e19efbbfb5de6af4e05c187c849fc0 -> 889b30c21bd1cbf6cd89305af91af385
+  custom:scripting/monoscript/fileName/EnemyStates.cs: d7b7649de8bc368aafefff6342f20f74 -> a4bb6cf05cbd32a18c32d216d97ea99d
+  custom:scripting/monoscript/fileName/EnemyHealth.cs: e07955fcc26f7ca9605fdaf70d2e6e10 -> a4d027726692f4f1a1dc379aafbb87e2
+  custom:scripting/monoscript/fileName/TankView.cs: 5e4d85ae52e214aacbb2fb4121d913f1 -> 12b4053d925ced6d95df7d19c3d567db
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/TankScriptableObject.cs: 38568c10a70fee2c5914e26dff3256ce -> 207097d1934ccfed5392fe2a5e20128e
+  custom:scripting/monoscript/fileName/EnemyController.cs: 8442503c084fb948dcd9c70d1c488e5d -> 533ca32f7eae77d882167cda93499271
+  custom:scripting/monoscript/fileName/TankService.cs: 5ad64a9baa1d1db5e6d13e8bc5c1eb50 -> fba8a94bcee9298c941b77eb150e09c5
+  custom:scripting/monoscript/fileName/TankModel.cs: f714b948a56b9f1d9797150297ac704f -> 2118fff729dc6ace75b8ddc22ca3e081
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BulletModel.cs: be7ae4f0a00877138ad43112696aa153 -> 4f018313bd596b5125c8cafff06df16c
+  custom:scripting/monoscript/fileName/EnemyScriptableObjectList.cs: f523b021fd106c2ad52de29998836508 -> 74d6652ab0d0b2704eb1638e14a82233
+  custom:scripting/monoscript/fileName/BulletService.cs: 37b061f5e35882ba3f387e244c24ace6 -> ae5d6559bc6562241876030cce2845e6
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/HealthBar.cs: 671774bd9f5df513e52f8c10d14b90d5 -> e02a13ebfecfefd70171c0594cf22391
+  custom:scripting/monoscript/fileName/EnemyChaseState.cs: e192f2c1c31bd50e1a9bbf0c8c8ee4ec -> 508f27f32801e1a55bed81d2ef939ad1
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/EnemyPatrolState.cs: e37b68ea712a4c39ebb77cf9a7989a1e -> 09a1dc3d2ffb0d80d13ed1b29e04109c
+  custom:scripting/monoscript/fileName/EnemyModel.cs: 8f3a821001d7f96d800bcef0d5f52f21 -> 3c03d1737d288ee64fbdc94342a39d98
+  custom:scripting/monoscript/fileName/TankController.cs: 819bfb60cc203d1a4d7fc748eaf110e6 -> 42e12ae5751c998ee48e0e6eff2b6eb8
+  custom:scripting/monoscript/fileName/BulletController.cs: 5fc006f99f133afb32930278602f4ab6 -> 55665420895c426dc9ee2c8b47701135
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BulletScriptableObjectList.cs: 9a134a34550d51f496a5e4438acc324c -> a34454a02e629943064e47476799f6a7
+  custom:scripting/monoscript/fileName/BulletScriptableObject.cs: b0dbb347d01b25dfd85b411c3d254ee1 -> bec96aee1e919e5e9282389e5c67545f
+  custom:scripting/monoscript/fileName/EnemyScriptableObject.cs: 68b94711112ec34153ec188e5cdcfce5 -> 1cd2bbbb21b7eb42f51eaff0124f6eb8
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+========================================================================
+Received Import Request.
+  Time since last request: 94.946202 seconds.
+  path: Assets/Prefabs/BlueTank.prefab
+  artifactKey: Guid(15e2aa35d42c22e44a33bde33a41c90e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BlueTank.prefab using Guid(15e2aa35d42c22e44a33bde33a41c90e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55af64ae7e1faf383406f1b8d37576ae') in 1.032002 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 866
+========================================================================
+Received Import Request.
+  Time since last request: 0.000068 seconds.
+  path: Assets/Prefabs/EnemyTank.prefab
+  artifactKey: Guid(2d295865c923c3b45a23e01c150af9a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EnemyTank.prefab using Guid(2d295865c923c3b45a23e01c150af9a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e6daf8621eba8a4700d843c871ece88') in 0.079797 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 123
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.060 seconds
+Refreshing native plugins compatible for Editor in 9.14 ms, found 2 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.326 seconds
+Domain Reload Profiling: 2382ms
+	BeginReloadAssembly (218ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (9ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (56ms)
+	RebuildCommonClasses (60ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (54ms)
+	LoadAllAssembliesAndSetupDomain (706ms)
+		LoadAssemblies (475ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (334ms)
+			TypeCache.Refresh (327ms)
+				TypeCache.ScanAssembly (302ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (1327ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (809ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (46ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (103ms)
+			ProcessInitializeOnLoadAttributes (371ms)
+			ProcessInitializeOnLoadMethodAttributes (266ms)
+			AfterProcessingInitializeOnLoad (16ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (12ms)
+Refreshing native plugins compatible for Editor in 7.17 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2649 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 61 unused Assets / (333.1 KB). Loaded Objects now: 3154.
+Memory consumption went from 116.6 MB to 116.3 MB.
+Total: 12.614500 ms (FindLiveObjects: 0.570900 ms CreateObjectMapping: 0.109300 ms MarkObjects: 11.477700 ms  DeleteObjects: 0.453300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/EnemyView.cs: 786d282df67e08bb00fa44434347a4ba -> 9cbce59167e59d9060196b4bb6fbec26
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/EnemyAttackState.cs: d246f509c40cacde6cbe0e8a29a2917b -> 5b55df549f86193bd476cf1bec1cbe2a
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/ServicePool.cs: 888c7d98557f020f9a2c8c6200ba75a6 -> 0cdf409b5aa8d4c25876d72b5c6a3b60
+  custom:scripting/monoscript/fileName/BulletView.cs: 6bc6ecca1bd71ab881c6b2336db82377 -> 7c83662f13bf0dd0e8644b98e7559196
+  custom:scripting/monoscript/fileName/EnemyIdleState.cs: 76cfb923676a85fe80231f66aaf3ee5b -> 69d9c17592ce9f4849c2224ba6811a36
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/EnemyService.cs: 781a1d420ed58ac916c99e0b1357269c -> 4934ba800b35d95c9ad255c7eedbf385
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/ServicePool1.cs: f6f7ac54f83e2b020efbffb86946f37f -> 
+  custom:scripting/monoscript/fileName/TankScriptableObjectList.cs: 44e19efbbfb5de6af4e05c187c849fc0 -> 889b30c21bd1cbf6cd89305af91af385
+  custom:scripting/monoscript/fileName/EnemyStates.cs: d7b7649de8bc368aafefff6342f20f74 -> a4bb6cf05cbd32a18c32d216d97ea99d
+  custom:scripting/monoscript/fileName/EnemyHealth.cs: e07955fcc26f7ca9605fdaf70d2e6e10 -> a4d027726692f4f1a1dc379aafbb87e2
+  custom:scripting/monoscript/fileName/TankView.cs: 5e4d85ae52e214aacbb2fb4121d913f1 -> 12b4053d925ced6d95df7d19c3d567db
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/TankScriptableObject.cs: 38568c10a70fee2c5914e26dff3256ce -> 207097d1934ccfed5392fe2a5e20128e
+  custom:scripting/monoscript/fileName/EnemyController.cs: 8442503c084fb948dcd9c70d1c488e5d -> 533ca32f7eae77d882167cda93499271
+  custom:scripting/monoscript/fileName/TankService.cs: 5ad64a9baa1d1db5e6d13e8bc5c1eb50 -> fba8a94bcee9298c941b77eb150e09c5
+  custom:scripting/monoscript/fileName/TankModel.cs: f714b948a56b9f1d9797150297ac704f -> 2118fff729dc6ace75b8ddc22ca3e081
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BulletModel.cs: be7ae4f0a00877138ad43112696aa153 -> 4f018313bd596b5125c8cafff06df16c
+  custom:scripting/monoscript/fileName/EnemyScriptableObjectList.cs: f523b021fd106c2ad52de29998836508 -> 74d6652ab0d0b2704eb1638e14a82233
+  custom:scripting/monoscript/fileName/BulletService.cs: 37b061f5e35882ba3f387e244c24ace6 -> ae5d6559bc6562241876030cce2845e6
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/HealthBar.cs: 671774bd9f5df513e52f8c10d14b90d5 -> e02a13ebfecfefd70171c0594cf22391
+  custom:scripting/monoscript/fileName/EnemyChaseState.cs: e192f2c1c31bd50e1a9bbf0c8c8ee4ec -> 508f27f32801e1a55bed81d2ef939ad1
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/EnemyPatrolState.cs: e37b68ea712a4c39ebb77cf9a7989a1e -> 09a1dc3d2ffb0d80d13ed1b29e04109c
+  custom:scripting/monoscript/fileName/EnemyModel.cs: 8f3a821001d7f96d800bcef0d5f52f21 -> 3c03d1737d288ee64fbdc94342a39d98
+  custom:scripting/monoscript/fileName/TankController.cs: 819bfb60cc203d1a4d7fc748eaf110e6 -> 42e12ae5751c998ee48e0e6eff2b6eb8
+  custom:scripting/monoscript/fileName/BulletController.cs: 5fc006f99f133afb32930278602f4ab6 -> 55665420895c426dc9ee2c8b47701135
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BulletScriptableObjectList.cs: 9a134a34550d51f496a5e4438acc324c -> a34454a02e629943064e47476799f6a7
+  custom:scripting/monoscript/fileName/BulletScriptableObject.cs: b0dbb347d01b25dfd85b411c3d254ee1 -> bec96aee1e919e5e9282389e5c67545f
+  custom:scripting/monoscript/fileName/EnemyScriptableObject.cs: 68b94711112ec34153ec188e5cdcfce5 -> 1cd2bbbb21b7eb42f51eaff0124f6eb8
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 

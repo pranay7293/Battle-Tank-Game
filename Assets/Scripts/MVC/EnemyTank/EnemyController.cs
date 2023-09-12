@@ -1,11 +1,14 @@
+using System;
 using UnityEngine;
 public class EnemyController
 {
     private EnemyModel EnemyModel { get; set; }
     public EnemyView EnemyView { get; set; }
-    private BulletService BulletService { get; set; }
+    private readonly BulletService BulletService;
 
     private TankController TankController { get; set; }
+    private readonly string type = "EnemyBullet";
+
 
     public EnemyController(EnemyModel enemyModel, EnemyView enemyView, Vector3 spawnPoint)
     {
@@ -22,7 +25,7 @@ public class EnemyController
     }
     public void Fire()
     {
-        BulletService.SpawnBullet(BulletService.transform, BulletType.EnemyBullet);
+        BulletService.EnemySpawnBullet(BulletService.transform, type);
     }
   
     public float Getdistance()
@@ -48,8 +51,18 @@ public class EnemyController
             EnemyView.GetEnemyHealth().UpdateHealth(EnemyModel.EnemyHealth);
         }
     }
+
     public void DestroyTank()
     {
         EnemyView.DestroyEnemyTank();
+    }
+
+    public void Enable()
+    {
+        EnemyView.Enabled();
+    }
+    public void Disable()
+    {
+        EnemyView.Disable();
     }
 }

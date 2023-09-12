@@ -64,7 +64,7 @@ public class AchievementSystem : MonoBehaviour, IObserver
 
     private void DisplayQueuedAchievement()
     {
-        if (achievements.Count > 0)
+        if (achievements.Count > 0 && tankPlayer != null)
         {
             string achievement = achievements.Dequeue();
             textDisplay.text = achievement;
@@ -82,24 +82,18 @@ public class AchievementSystem : MonoBehaviour, IObserver
     public void OnBulletsFired()
     {
         numberOfBullets++;
-        Debug.Log("Bullets fired" + numberOfBullets);
-
         CheckAchievements(bulletsFiredAchievements, bulletsFiredAchievementsUnlocked, numberOfBullets);
     }
 
     public void OnDamage(int damage)
     {
         totalDamage += damage;
-        Debug.Log("Damage fired" + totalDamage);
-
         CheckAchievements(damageAchievements, damageAchievementsUnlocked, totalDamage);
     }
 
     public void OnKills()
     {
         enemyKills++;
-        Debug.Log("Kills fired" + enemyKills);
-
         CheckAchievements(killsAchievements, killsAchievementsUnlocked, enemyKills);
     }
 
