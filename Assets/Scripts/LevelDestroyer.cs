@@ -4,37 +4,26 @@ using UnityEngine;
 public class LevelDestroyer : GenericSingleton<LevelDestroyer>
 {
     [SerializeField] private GameObject Level;
-    public bool IsDead { get; set; } = false;
     private bool isRunning = false;
-
 
     void Start()
     {
         EventManager.OnTankDestroyed += OnTankDestroyed;
-
-        if (IsDead && !isRunning)
-        {
-            StartCoroutine(DestroyAll());
-        }
     }
     private void OnTankDestroyed()
     {
-        IsDead = true;
-
         if (!isRunning)
         {
             StartCoroutine(DestroyAll());
         }
     }
 
-
     public IEnumerator DestroyAll()
     {
         isRunning = true;
         StartCoroutine(DestroyEnemies(2));
         StartCoroutine(DestroyGround(3));
-        yield return null;
-      
+        yield return null;      
     }
 
     IEnumerator DestroyGround(int sec)

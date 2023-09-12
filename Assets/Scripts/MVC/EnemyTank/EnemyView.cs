@@ -84,10 +84,22 @@ public class EnemyView : Subject, IDamagable
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("PlayerBullet"))
+        BulletView bulletView = collision.gameObject.GetComponent<BulletView>();
+
+        if (bulletView != null)
         {
-            TakeDamage(dealDamage);
-            NotifyDamageObservers(dealDamage);
+            BulletController bulletController = bulletView.GetBulletController();
+
+            if (bulletController != null)
+            {
+                BulletType bulletType = bulletController.GetBulletType();
+
+                if (bulletType == BulletType.PlayerBullet)
+                {
+                    TakeDamage(dealDamage);
+                    NotifyDamageObservers(dealDamage);
+                }
+            }
         }
     }
 

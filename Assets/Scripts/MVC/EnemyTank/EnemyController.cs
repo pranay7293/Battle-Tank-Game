@@ -7,7 +7,6 @@ public class EnemyController
     private readonly BulletService BulletService;
 
     private TankController TankController { get; set; }
-    private readonly string type = "EnemyBullet";
 
 
     public EnemyController(EnemyModel enemyModel, EnemyView enemyView, Vector3 spawnPoint)
@@ -25,7 +24,7 @@ public class EnemyController
     }
     public void Fire()
     {
-        BulletService.EnemySpawnBullet(BulletService.transform, type);
+        BulletService.EnemySpawnBullet(BulletService.transform, BulletType.EnemyBullet);
     }
   
     public float Getdistance()
