@@ -73,16 +73,9 @@ public class TankView : Subject, IDamagable
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("EnemyBullet"))
         {
-            if (collision.gameObject.TryGetComponent<BulletView>(out var bullet))
-            {
-                BulletType bulletType = bullet.GetBulletController().GetBulletType();
-                if (bulletType == BulletType.EnemyBullet)
-                {
-                    TakeDamage(dealDamage);
-                }
-            }
+            TakeDamage(dealDamage);
         }
     }
     public void DestroyTank()

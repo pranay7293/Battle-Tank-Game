@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BulletController
@@ -6,35 +7,44 @@ public class BulletController
     private BulletModel BulletModel { get; }
     private readonly Rigidbody bulletRb;
     private readonly Transform bulletSpawn;
-    private readonly GameObject bulletGameObject;
-    private BulletType bulletType; 
+    private readonly GameObject bulletObj;
 
-
-
-    public BulletController(BulletView viewBullet, BulletModel modelBullet, Transform spawnTransform, BulletType bulletType)
+    public BulletController(BulletView viewBullet, BulletModel modelBullet, Transform spawnTransform)
     {
         bulletSpawn = spawnTransform;
         BulletView = GameObject.Instantiate<BulletView>(viewBullet, bulletSpawn.position, bulletSpawn.rotation);
         BulletModel = modelBullet;
         BulletView.SetBulletController(this);
         bulletRb = BulletView.GetRigidbody();
-        bulletGameObject = BulletView.gameObject;
-        this.bulletType = bulletType;
+        bulletObj = BulletView.gameObject;
     }
+
     public void ShootBullet()
     {
         bulletRb.velocity = bulletSpawn.forward * BulletModel.BulletSpeed;
     }
-    public BulletType GetBulletType()
-    {
-        return bulletType;
-    }
+  
     public BulletModel GetBulletModel()
     {
         return BulletModel;
     }
+
+    public void Enable()
+    {
+        BulletView.Enable();
+    }
+    public void Disable()
+    {
+        BulletView.Disable();
+    }
+
+    public void SetTransform(Transform spawn)
+    {
+        BulletView.SetTransform(spawn);
+    }
+
     public GameObject GetBulletGameObject()
     {
-        return bulletGameObject;
+        return bulletObj;
     }
 }

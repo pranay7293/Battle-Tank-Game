@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -82,17 +84,10 @@ public class EnemyView : Subject, IDamagable
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("PlayerBullet"))
         {
-            if (collision.gameObject.TryGetComponent<BulletView>(out var bullet))
-            {
-                BulletType bulletType = bullet.GetBulletController().GetBulletType();
-                if (bulletType == BulletType.PlayerBullet)
-                {
-                    TakeDamage(dealDamage);
-                    NotifyDamageObservers(dealDamage);
-                }
-            }
+            TakeDamage(dealDamage);
+            NotifyDamageObservers(dealDamage);
         }
     }
 
@@ -101,13 +96,31 @@ public class EnemyView : Subject, IDamagable
         NotifyKillsObservers();
         ParticleSystem explosion = Instantiate(EnemyController.GetEnemyModel().EnemyExplosion, gameObject.transform.position, Quaternion.identity);
         explosion.Play();
-        Destroy(gameObject);
+        DisableEnemy();
         Destroy(explosion.gameObject, 1.5f);
+
+    }
+
+    private void DisableEnemy()
+    {
+        //Disable();
+        EnemyService.Instance.enemyTankPool.ReturnItem(EnemyController);
     }
 
     public void TakeDamage(int damage)
     {
         EnemyController.ApplyDamage(damage);        
     }
+
+    public void Enabled()
+    {
+        gameObject.SetActive(true);
+    }
+    public void Disable()
+    {
+        gameObject.SetActive(false);
+
+    }
+    
 }
 
