@@ -35,7 +35,7 @@ public class TankController
     }
     public void ShootBullet()
     {
-        BulletService.PlayerSpawnBullet(BulletService.transform, BulletType.PlayerBullet);
+        BulletService.SpawnBullet(BulletService.transform, BulletType.PlayerBullet);
     }
     public void TakeDamage(int damage)
     {

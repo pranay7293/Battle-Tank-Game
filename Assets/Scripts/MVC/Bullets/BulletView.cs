@@ -5,8 +5,8 @@ using UnityEngine;
 public class BulletView : MonoBehaviour
 {
     private BulletController BulletController { get; set; }
-    private BulletPool playerBulletPool;
-    private BulletPool enemyBulletPool;
+    public BulletPool playerBulletPool;
+    public BulletPool enemyBulletPool;
 
     private bool hasExploded = false; 
     private AudioSource audioSource; 
@@ -44,39 +44,37 @@ public class BulletView : MonoBehaviour
         {
             if (tankView != null) 
             {
-                StartCoroutine(DisablePlayerBullet(2)); //Do Nothing, When Player Bullet hits another Player
+                Invoke(nameof(DisablePlayerBullet), 1); //Do Nothing, When Player Bullet hits another Player
             }
             else
             {
                 BulletExplode();
-                StartCoroutine(DisablePlayerBullet(2));
+                Invoke(nameof(DisablePlayerBullet), 1);
             }   
         }
         else if (bulletType == BulletType.EnemyBullet)
         {
             if (enemyView != null)
             {
-                StartCoroutine(DisableEnemyBullet(2)); //Do Nothing, When Enemy Bullet hits another Enemy
+                Invoke(nameof(DisableEnemyBullet), 1); //Do Nothing, When Enemy Bullet hits another Enemy
             }
             else
             {
                 BulletExplode();
-                StartCoroutine(DisableEnemyBullet(2));
+                Invoke(nameof(DisableEnemyBullet), 1);
             }
         }       
     }
 
-    private IEnumerator DisableEnemyBullet(float delay)
+    private void DisableEnemyBullet()
     {
-        yield return new WaitForSeconds(delay);
         Disable();
         enemyBulletPool.ReturnItem(BulletController);
 
     }
 
-    private IEnumerator DisablePlayerBullet(float delay)
+    private void DisablePlayerBullet()
     {
-        yield return new WaitForSeconds(delay);
         Disable();
         playerBulletPool.ReturnItem(BulletController);
     }

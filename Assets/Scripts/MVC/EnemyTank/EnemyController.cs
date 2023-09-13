@@ -24,7 +24,7 @@ public class EnemyController
     }
     public void Fire()
     {
-        BulletService.EnemySpawnBullet(BulletService.transform, BulletType.EnemyBullet);
+        BulletService.SpawnBullet(BulletService.transform, BulletType.EnemyBullet);
     }
   
     public float Getdistance()
