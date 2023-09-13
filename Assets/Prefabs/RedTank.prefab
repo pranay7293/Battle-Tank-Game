@@ -1143,6 +1143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletList: {fileID: 11400000, guid: 3e4e632eee25293478f2d8f6c2dc2bf9, type: 2}
+  bulletPool: {fileID: 4729142335228620790}
 --- !u!114 &4729142335228620790
 MonoBehaviour:
   m_ObjectHideFlags: 0

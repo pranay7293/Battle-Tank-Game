@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BulletController
 {
-    private BulletView BulletView { get; }
+    public BulletView BulletView { get; }
     private BulletModel BulletModel { get; }
     private readonly Rigidbody bulletRb;
     private readonly Transform bulletSpawn;
