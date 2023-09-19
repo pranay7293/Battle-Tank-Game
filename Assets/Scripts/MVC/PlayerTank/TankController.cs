@@ -4,15 +4,18 @@ public class TankController
 {
     private TankModel TankModel { get; }
     public TankView TankView { get; }
-    private readonly BulletService BulletService;
+    private BulletService bulletService;
+    private Transform bulletSpawn;
     private readonly Rigidbody tankRb;
+    
     public TankController(TankModel _tankModel, TankView _tankView)
     {
         TankModel = _tankModel;
         TankView = GameObject.Instantiate<TankView>(_tankView);
         TankView.SetTankController(this);
         tankRb = TankView.GetRigidbody();
-        BulletService = TankView.GetBulletService();
+        bulletService = TankView.GetBulletService();
+        bulletSpawn = TankView.GetBulletSpawnTransform();
 
     }
 
@@ -23,10 +26,9 @@ public class TankController
     }
 
     public void TankRotate(float rotate)
-    { 
-        Vector3 vector = new Vector3(0, rotate*100, 0);
-        Quaternion deltaRotation = Quaternion.Euler(vector * Time.deltaTime);
-        tankRb.MoveRotation(tankRb.rotation * deltaRotation);
+    {
+        Quaternion targetRotation = Quaternion.Euler(0f, rotate * 45 * Time.deltaTime, 0f);
+        tankRb.MoveRotation(targetRotation * tankRb.rotation);
     }
 
     public TankModel GetTankModel()
@@ -35,7 +37,7 @@ public class TankController
     }
     public void ShootBullet()
     {
-        BulletService.SpawnBullet(BulletService.transform, BulletType.PlayerBullet);
+        bulletService.SpawnBullet(bulletSpawn.transform, BulletType.PlayerBullet);
     }
     public void TakeDamage(int damage)
     {

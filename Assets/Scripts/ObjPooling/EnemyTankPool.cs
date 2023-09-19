@@ -28,7 +28,6 @@ public class EnemyTankPool : ServicePool <EnemyController>
         if (pooledItem != null)
         {
             pooledItem.IsUsed = false;
-            enemyController.Disable();
         }
     }
 }

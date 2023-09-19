@@ -7,17 +7,20 @@ public class BulletView : MonoBehaviour
     private BulletController BulletController { get; set; }
     public BulletPool playerBulletPool;
     public BulletPool enemyBulletPool;
+    private Rigidbody rb;
 
-    private bool hasExploded = false; 
-    private AudioSource audioSource; 
-    
+    private bool hasExploded = false;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     private void Start()
     {
         playerBulletPool = TankService.Instance.TankController.TankView.GetBulletService().GetComponent<BulletPool>();
         enemyBulletPool = EnemyService.Instance.EnemyController.EnemyView.GetBulletService().GetComponent<BulletPool>();
-        audioSource = GetComponent<AudioSource>();
-
-        BulletController.ShootBullet();
+       
     }
 
     public void SetBulletController(BulletController bulletCtrl)
@@ -30,7 +33,7 @@ public class BulletView : MonoBehaviour
     }
     public Rigidbody GetRigidbody()
     {
-        return GetComponent<Rigidbody>();
+        return rb;
     }
 
 
@@ -38,43 +41,44 @@ public class BulletView : MonoBehaviour
     {
         BulletType bulletType = BulletController.GetBulletType();
         TankView tankView = collision.gameObject.GetComponent<TankView>();
-        EnemyView enemyView = collision.gameObject.GetComponent<EnemyView>();   
+        EnemyView enemyView = collision.gameObject.GetComponent<EnemyView>();
 
         if (bulletType == BulletType.PlayerBullet)
         {
-            if (tankView != null) 
+            if (tankView != null)
             {
-                Invoke(nameof(DisablePlayerBullet), 1); //Do Nothing, When Player Bullet hits another Player
+                DisablePlayerBullet(); //Do Nothing, When Player Bullet hits another Player
             }
             else
             {
                 BulletExplode();
-                Invoke(nameof(DisablePlayerBullet), 1);
-            }   
+                DisablePlayerBullet();
+            }
         }
         else if (bulletType == BulletType.EnemyBullet)
         {
             if (enemyView != null)
             {
-                Invoke(nameof(DisableEnemyBullet), 1); //Do Nothing, When Enemy Bullet hits another Enemy
+                DisableEnemyBullet(); //Do Nothing, When Enemy Bullet hits another Enemy
             }
             else
             {
                 BulletExplode();
-                Invoke(nameof(DisableEnemyBullet), 1);
+                DisableEnemyBullet();
             }
-        }       
+        }
     }
 
     private void DisableEnemyBullet()
     {
+        SoundManager.Instance.PlaySound(Sounds.ShotExplosion);
         Disable();
         enemyBulletPool.ReturnItem(BulletController);
-
     }
 
     private void DisablePlayerBullet()
     {
+        SoundManager.Instance.PlaySound(Sounds.ShotExplosion);
         Disable();
         playerBulletPool.ReturnItem(BulletController);
     }
@@ -87,9 +91,6 @@ public class BulletView : MonoBehaviour
 
             ParticleSystem explosion = Instantiate(model.bulletExplosion, transform.position, Quaternion.identity);
             explosion.Play();
-
-            audioSource.PlayOneShot(BulletController.GetBulletModel().bulletClip);
-
             Destroy(explosion.gameObject, 2f);
             hasExploded = true;
         }
@@ -106,10 +107,4 @@ public class BulletView : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void SetTransform(Transform transform)
-    {
-        gameObject.transform.position = transform.position;
-        gameObject.transform.forward = transform.forward;
-        gameObject.transform.LookAt(transform.forward * 100);
-    }
-}
+}   

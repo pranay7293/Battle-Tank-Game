@@ -18,8 +18,9 @@ MonoBehaviour:
   speed: 10
   range: 10
   deathExplosion: {fileID: 19874418, guid: ee49a9a8678ecf8468eb488e1ac8d42b, type: 3}
-  shootClip: {fileID: 8300000, guid: 5c27182a28a7eb942a362e6d198fe0e6, type: 3}
+  bustedTank: {fileID: 8753367214044190371, guid: 1033d8eb05d35744591946534b531056,
+    type: 3}
   sightRange: 15
-  attackRange: 6
+  attackRange: 10
   minDealDamage: 50
   maxDealDamage: 75
