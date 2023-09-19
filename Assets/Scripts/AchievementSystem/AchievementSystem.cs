@@ -9,7 +9,7 @@ public class AchievementSystem : MonoBehaviour, IObserver
     private TankView tankPlayer;
     private EnemyView enemyTank;
 
-    private int numberOfBullets;
+    private int numberOfBullets; 
     private int enemyKills;
     private int totalDamage;
 

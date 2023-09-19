@@ -8,7 +8,7 @@ public class EnemyScriptableObject : ScriptableObject
     public float speed;
     public float range;
     public ParticleSystem deathExplosion;
-    public AudioClip shootClip;
+    public GameObject bustedTank;
     public float sightRange;
     public float attackRange;
     public int minDealDamage;

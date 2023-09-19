@@ -6,5 +6,4 @@ public class BulletScriptableObject : ScriptableObject
     public BulletView bulletView;
     public float speedBullet;
     public ParticleSystem explosionType;
-    public AudioClip explosionClip;
 }

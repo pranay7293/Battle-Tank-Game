@@ -12,7 +12,6 @@ public class BulletModel
     {
         BulletSpeed = bulletScriptableObject.speedBullet;
         bulletExplosion = bulletScriptableObject.explosionType;
-        bulletClip = bulletScriptableObject.explosionClip;
     }
     public void SetBulletController(BulletController bulletCtrl)
     {

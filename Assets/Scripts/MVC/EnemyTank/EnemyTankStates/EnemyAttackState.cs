@@ -18,7 +18,7 @@ public class EnemyAttackState : EnemyStates
     {
         if (TankCtrl != null && EnemyView != null)
         {
-            transform.LookAt(TankCtrl.TankView.transform.position);
+            transform.LookAt(TankCtrl.TankView.transform);
 
             if (TimeElapsed > attackReset)
             {

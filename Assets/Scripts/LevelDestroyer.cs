@@ -1,13 +1,20 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using Button = UnityEngine.UI.Button;
 
 public class LevelDestroyer : GenericSingleton<LevelDestroyer>
 {
     [SerializeField] private GameObject Level;
+    [SerializeField] private GameObject LevelFailed;
+    [SerializeField] private Button replayButton;
+    [SerializeField] private Button exitButton;
     private bool isRunning = false;
 
     void Start()
     {
+        replayButton.onClick.AddListener(() => { TankService.Instance.TankController.TankView.LoadLevel(); });
+        exitButton.onClick.AddListener(() => { TankService.Instance.TankController.TankView.LoadLobby(); });
         EventManager.OnTankDestroyed += OnTankDestroyed;
     }
     private void OnTankDestroyed()
@@ -29,17 +36,26 @@ public class LevelDestroyer : GenericSingleton<LevelDestroyer>
     IEnumerator DestroyGround(int sec)
     {
         yield return new WaitForSeconds(sec);
-        Level.SetActive(false);
+        Level.SetActive(false);  
+        Invoke(nameof(LevelFailedMenu), 1);
     }
     IEnumerator DestroyEnemies(int sec)
     {
         yield return new WaitForSeconds(sec);
-        for (int i = 0; i < EnemyService.Instance.ListofEnemies.Count; i++)
+        List<EnemyController> enemiesCopy = new List<EnemyController>(EnemyService.Instance.ListofEnemies);
+
+        foreach (EnemyController enemy in enemiesCopy)
         {
-            if (EnemyService.Instance.ListofEnemies[i] != null)
+            if (enemy != null)
             {
-                EnemyService.Instance.ListofEnemies[i].DestroyTank();
+                enemy.DestroyEnemy();
             }
         }
+    }
+
+    private void LevelFailedMenu()
+    {
+        SoundManager.Instance.PlaySound(Sounds.GameOver);
+        LevelFailed.SetActive(true);
     }
 }

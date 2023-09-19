@@ -1,41 +1,58 @@
+using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TankView : Subject, IDamagable
 {
     [SerializeField] private Joystick joyStick;
-    [SerializeField] private Rigidbody tankRb;
-    [SerializeField] private BulletService bulletService;
     [SerializeField] private Button shootButton;
-    [SerializeField] private LevelDestroyer levelDestroyer;
+    [SerializeField] private Button replyButton;
+    [SerializeField] private Button exitButton1;
+    [SerializeField] private Button resumeButton;
+    [SerializeField] private Button exitButton2;
+    [SerializeField] private Button pauseButton;
+    [SerializeField] private Rigidbody tankRb;
     [SerializeField] private HealthBar healthBar;
-
+    [SerializeField] private BulletService bulletService;
+    [SerializeField] private Transform bulletSpawn;
+    [SerializeField] private TextMeshProUGUI enemiesCount;
+    [SerializeField] private GameObject levelComplete;      
+    [SerializeField] private GameObject pauseMenu;      
     private TankController TankController { get; set; }
     private float movement;
     private float rotation;
     private TankModel TankModel;
     private int dealDamage;
 
-
+   
     private void Start()
     {
+        enemiesCount.text = "Enemies Left:" + EnemyService.Instance.ListofEnemies.Count;
         shootButton.onClick.AddListener(Shoot);
+        resumeButton.onClick.AddListener(ResumePlay);
+        pauseButton.onClick.AddListener(PausePlay);
+        replyButton.onClick.AddListener(LoadLevel);
+        exitButton1.onClick.AddListener(LoadLobby);
+        exitButton2.onClick.AddListener(LoadLobby);
         TankModel = TankController.GetTankModel();
         dealDamage = TankModel.DealDamage;
         healthBar.UpdateHealthBar(TankModel.TankHealth);
     }
+
     private void Update()
     {
         Movement();
-
-        if (movement != 0 ) 
+        if (movement != 0)
         {
             TankController.TankMove(movement);
         }
-        if (rotation != 0) 
+        if (rotation != 0)
         {
             TankController.TankRotate(rotation);
         }
+
     }
     private void LateUpdate()
     {
@@ -47,7 +64,11 @@ public class TankView : Subject, IDamagable
         movement = joyStick.Vertical;
         rotation = joyStick.Horizontal;
     }
+
     public Rigidbody GetRigidbody() { return tankRb; }
+
+    public Transform GetBulletSpawnTransform()
+    { return bulletSpawn; }
 
     public void SetTankController(TankController _tankController)
     {
@@ -61,12 +82,38 @@ public class TankView : Subject, IDamagable
     {
         return healthBar;
     }
+    public void LoadLobby()
+    {
+        SoundManager.Instance.PlaySound(Sounds.ExitButtonClick);
+        SceneManager.LoadScene(0);
+        levelComplete.SetActive(false);
+        pauseMenu.SetActive(false);
+    }
+    private void PausePlay()
+    {
+        SoundManager.Instance.PlaySound(Sounds.PlayButtonClick);
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    private void ResumePlay()
+    {
+        SoundManager.Instance.PlaySound(Sounds.PlayButtonClick);
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void LoadLevel()
+    {
+        SoundManager.Instance.PlaySound(Sounds.PlayButtonClick);
+        SceneManager.LoadScene(1);
+    }
+
     public void Shoot()
     {
         NotifyBulletsFiredObservers();
-        AudioClip clip = TankController.GetTankModel().ShootClip;
-        gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
         TankController.ShootBullet();
+        SoundManager.Instance.PlaySound(Sounds.ShotFire);
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -94,6 +141,7 @@ public class TankView : Subject, IDamagable
         {
            ParticleSystem explosion = Instantiate(TankModel.Explosion, gameObject.transform.position, Quaternion.identity);
             explosion.Play();
+            SoundManager.Instance.PlaySound(Sounds.TankExplosion);
             Destroy(gameObject);
             Destroy(explosion.gameObject, 1.5f);
         }
@@ -103,4 +151,23 @@ public class TankView : Subject, IDamagable
     {
         TankController.TakeDamage(damage);
     }
+
+    public void UpdateEnemiesCount()
+    {
+        if(EnemyService.Instance.ListofEnemies.Count > 0)
+        {
+            enemiesCount.text = "Enemies Left:" + EnemyService.Instance.ListofEnemies.Count;
+        }
+        else
+        {
+            enemiesCount.text = "Enemies Left:" + EnemyService.Instance.ListofEnemies.Count;
+            Invoke(nameof(LevelCompleteMenu), 1f);
+        }
+    }
+    private void LevelCompleteMenu()
+    {
+        SoundManager.Instance.PlaySound(Sounds.PlayerWin);
+        levelComplete.SetActive(true);
+    }
+
 }

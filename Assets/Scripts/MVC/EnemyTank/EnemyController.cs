@@ -4,9 +4,9 @@ public class EnemyController
 {
     private EnemyModel EnemyModel { get; set; }
     public EnemyView EnemyView { get; set; }
-    private readonly BulletService BulletService;
-
     private TankController TankController { get; set; }
+    private BulletService bulletService;
+    private Transform bulletSpawn;
 
 
     public EnemyController(EnemyModel enemyModel, EnemyView enemyView, Vector3 spawnPoint)
@@ -14,7 +14,8 @@ public class EnemyController
         EnemyModel = enemyModel;
         EnemyView = GameObject.Instantiate<EnemyView>(enemyView, spawnPoint, Quaternion.identity);
         EnemyView.SetEnemyController(this);
-        BulletService = EnemyView.GetBulletService();
+        bulletService = EnemyView.GetBulletService();
+        bulletSpawn = EnemyView.GetBulletSpawnTransform();
         TankController = TankService.Instance.TankController;
 
     }
@@ -24,7 +25,8 @@ public class EnemyController
     }
     public void Fire()
     {
-        BulletService.SpawnBullet(BulletService.transform, BulletType.EnemyBullet);
+        SoundManager.Instance.PlaySound(Sounds.ShotFire);
+        bulletService.SpawnBullet(bulletSpawn.transform, BulletType.EnemyBullet);
     }
   
     public float Getdistance()
@@ -54,6 +56,10 @@ public class EnemyController
     public void DestroyTank()
     {
         EnemyView.DestroyEnemyTank();
+    }
+    public void DestroyEnemy()
+    {
+        EnemyView.DestroyEnemy();
     }
 
     public void Enable()

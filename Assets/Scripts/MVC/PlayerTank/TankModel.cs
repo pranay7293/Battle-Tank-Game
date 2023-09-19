@@ -8,8 +8,6 @@ public class TankModel
     public ParticleSystem Explosion { get; }
 
     public TankTypes TankType { get;  }
-
-    public AudioClip ShootClip { get; set; }
     public int MinDealDamage { get; set; }
     public int MaxDealDamage { get; set; }
 
@@ -26,7 +24,6 @@ public class TankModel
         TankSpeed = tankScriptableObject.speed;
         TankHealth = tankScriptableObject.health;
         TankType = tankScriptableObject.tanktype;
-        ShootClip = tankScriptableObject.shootClip;
         Explosion = tankScriptableObject.explosion;
         MinDealDamage = tankScriptableObject.minDealDamage;
         MaxDealDamage = tankScriptableObject.maxDealDamage;
